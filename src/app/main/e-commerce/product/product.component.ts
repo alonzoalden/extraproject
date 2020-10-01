@@ -20,7 +20,7 @@ import { EcommerceProductService } from 'app/main/e-commerce/product/product.ser
 })
 export class EcommerceProductComponent implements OnInit, OnDestroy
 {
-    product: Product;
+    product: any;
     pageType: string;
     productForm: FormGroup;
 
@@ -43,7 +43,7 @@ export class EcommerceProductComponent implements OnInit, OnDestroy
     )
     {
         // Set the default
-        this.product = new Product();
+        // this.product = new Product();
 
         // Set the private defaults
         this._unsubscribeAll = new Subject();
@@ -62,18 +62,18 @@ export class EcommerceProductComponent implements OnInit, OnDestroy
         this._ecommerceProductService.onProductChanged
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(product => {
-
+                
                 if ( product )
                 {
-                    this.product = new Product(product);
+                    //this.product = new Product(product);
                     this.pageType = 'edit';
                 }
                 else
                 {
                     this.pageType = 'new';
-                    this.product = new Product();
+                    // this.product = new Product();
                 }
-
+                this.product = product;
                 this.productForm = this.createProductForm();
             });
     }
@@ -100,26 +100,12 @@ export class EcommerceProductComponent implements OnInit, OnDestroy
     createProductForm(): FormGroup
     {
         return this._formBuilder.group({
-            id              : [this.product.id],
-            name            : [this.product.name],
-            handle          : [this.product.handle],
-            description     : [this.product.description],
-            categories      : [this.product.categories],
-            tags            : [this.product.tags],
-            images          : [this.product.images],
-            priceTaxExcl    : [this.product.priceTaxExcl],
-            priceTaxIncl    : [this.product.priceTaxIncl],
-            taxRate         : [this.product.taxRate],
-            comparedPrice   : [this.product.comparedPrice],
-            quantity        : [this.product.quantity],
-            sku             : [this.product.sku],
-            width           : [this.product.width],
-            height          : [this.product.height],
-            depth           : [this.product.depth],
-            weight          : [this.product.weight],
-            extraShippingFee: [this.product.extraShippingFee],
-            active          : [this.product.active],
-            HTCCode         : [this.product.HTCCode],
+            id: [this.product ? this.product.id : 15],
+            ItemNumber: [this.product ? this.product.ItemNumber : null],
+            ItemDescription: [this.product ? this.product.ItemDescription : null],
+            HTCCode: [this.product ? this.product.HTCCode : null],
+            UpdatedOn: [new Date()],
+            CreatedOn: [new Date()]
         });
     }
 
@@ -129,8 +115,8 @@ export class EcommerceProductComponent implements OnInit, OnDestroy
     saveProduct(): void
     {
         const data = this.productForm.getRawValue();
-        data.handle = FuseUtils.handleize(data.name);
-
+        data.ItemName = FuseUtils.handleize(data.HTCCode);
+        console.log(data);
         this._ecommerceProductService.saveProduct(data)
             .then(() => {
 

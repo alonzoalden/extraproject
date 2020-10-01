@@ -101,6 +101,10 @@ e-commerce-products {
         .mat-column-quantity {
             flex: 0 1 160px;
         }
+        .mat-column-ItemDescription {
+            flex: 0 0 40% !important;
+        }
+        
 
         .mat-column-active {
             flex: 0 1 80px;

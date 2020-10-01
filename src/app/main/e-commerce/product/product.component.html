@@ -17,7 +17,7 @@
                     <mat-icon>arrow_back</mat-icon>
                 </button>
 
-                <div class="product-image mr-8 mr-sm-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
+                <div *ngIf="product && product.images" class="product-image mr-8 mr-sm-16" [@animate]="{value:'*',params:{delay:'50ms',scale:'0.2'}}">
                     <img *ngIf="product.images[0]" [src]="product.images[0].url">
                     <img *ngIf="!product.images[0]" [src]="'assets/images/ecommerce/product-image-placeholder.png'">
                 </div>
@@ -25,7 +25,7 @@
                 <div fxLayout="column" fxLayoutAlign="start start"
                      [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
                     <div class="h2" *ngIf="pageType ==='edit'">
-                        {{product.name}}
+                        {{product?.ItemNumber}}
                     </div>
                     <div class="h2" *ngIf="pageType ==='new'">
                         New Product
@@ -39,14 +39,14 @@
 
             <button mat-raised-button
                     class="save-product-button"
-                    [disabled]="productForm.invalid"
+                    [disabled]="productForm?.invalid"
                     *ngIf="pageType ==='new'" (click)="addProduct()">
                 <span>ADD</span>
             </button>
 
             <button mat-raised-button
                     class="save-product-button"
-                    [disabled]="productForm.invalid || productForm.pristine"
+                    [disabled]="productForm?.invalid || productForm?.pristine"
                     *ngIf="pageType ==='edit'" (click)="saveProduct()">
                 <span>SAVE</span>
             </button>
@@ -57,7 +57,7 @@
         <div class="content-card">
 
             <!-- CONTENT -->
-            <div class="content">
+            <div class="content" *ngIf="productForm">
 
                 <form name="productForm" [formGroup]="productForm" class="product w-100-p" fxLayout="column" fxFlex>
 
@@ -68,25 +68,25 @@
                             <div class="tab-content p-24" fusePerfectScrollbar>
 
                                 <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
-                                    <mat-label>Product Name</mat-label>
-                                    <input matInput placeholder="Product Name"
-                                           name="name"
-                                           formControlName="name"
+                                    <mat-label>Item Number</mat-label>
+                                    <input matInput placeholder="Item Number"
+                                           name="ItemNumber"
+                                           formControlName="ItemNumber"
                                            required>
                                 </mat-form-field>
 
                                 <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
-                                    <mat-label>Product Description</mat-label>
-                                    <textarea matInput placeholder="Product Description"
-                                              name="description"
-                                              formControlName="description"
-                                              rows="5">
+                                    <mat-label>Item Description</mat-label>
+                                    <textarea matInput placeholder="Item Description"
+                                              name="ItemDescription"
+                                              formControlName="ItemDescription"
+                                              >
                                     </textarea>
                                 </mat-form-field>
                                 <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
                                     <mat-label>HTC Code</mat-label>
-                                    <input matInput placeholder="Product Name"
-                                           name="name"
+                                    <input matInput placeholder="HTC Code"
+                                           name="HTCCode"
                                            formControlName="HTCCode"
                                            required>
                                 </mat-form-field>

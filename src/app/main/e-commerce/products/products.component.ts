@@ -10,6 +10,7 @@ import { FuseUtils } from '@fuse/utils';
 
 import { EcommerceProductsService } from 'app/main/e-commerce/products/products.service';
 import { takeUntil } from 'rxjs/operators';
+import { EcommerceProductService } from '../product/product.service';
 
 @Component({
     selector     : 'e-commerce-products',
@@ -21,7 +22,8 @@ import { takeUntil } from 'rxjs/operators';
 export class EcommerceProductsComponent implements OnInit
 {
     dataSource: FilesDataSource | null;
-    displayedColumns = ['id', 'image', 'name', 'category', 'price', 'quantity', 'active'];
+    // displayedColumns = ['id', 'image', 'name', 'category', 'price', 'quantity', 'active'];
+    displayedColumns = ['id', 'ItemNumber', 'ItemDescription', 'HTCCode', 'UpdatedOn'];
 
     @ViewChild(MatPaginator, {static: true})
     paginator: MatPaginator;
@@ -36,7 +38,8 @@ export class EcommerceProductsComponent implements OnInit
     private _unsubscribeAll: Subject<any>;
 
     constructor(
-        private _ecommerceProductsService: EcommerceProductsService
+        private _ecommerceProductsService: EcommerceProductsService,
+        private _ecommerceProductService: EcommerceProductService
     )
     {
         // Set the private defaults
@@ -68,6 +71,9 @@ export class EcommerceProductsComponent implements OnInit
 
                 this.dataSource.filter = this.filter.nativeElement.value;
             });
+    }
+    selectProduct(product) {
+        this._ecommerceProductService.onProductChanged.next(product);
     }
 }
 
@@ -223,4 +229,5 @@ export class FilesDataSource extends DataSource<any>
     disconnect(): void
     {
     }
+    
 }

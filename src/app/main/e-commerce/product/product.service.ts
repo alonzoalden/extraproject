@@ -65,6 +65,7 @@ export class EcommerceProductService implements Resolve<any>
                 this._httpClient.get('api/e-commerce-products/' + this.routeParams.id)
                     .subscribe((response: any) => {
                         this.product = response;
+                        console.log(this.product);
                         this.onProductChanged.next(this.product);
                         resolve(response);
                     }, reject);

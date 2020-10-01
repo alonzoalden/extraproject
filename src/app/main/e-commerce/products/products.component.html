@@ -26,8 +26,8 @@
 
             <!-- SEARCH -->
             <div class="search-wrapper mx-32 mx-md-0">
-                <div class="search" fxFlex fxLayout="row" fxLayoutAlign="start center">
-                    <mat-icon>search</mat-icon>
+                <div style="background-color: #fff;" class="search" fxFlex fxLayout="row" fxLayoutAlign="start center">
+                    <mat-icon style="color: #039be5 !important">search</mat-icon>
                     <input #filter placeholder="Search for a product">
                 </div>
             </div>
@@ -53,11 +53,46 @@
                        [@animateStagger]="{value:'50'}"
                        fusePerfectScrollbar>
 
+
+
+
                 <!-- ID Column -->
                 <ng-container matColumnDef="id">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
                     <mat-cell *matCellDef="let product">
                         <p class="text-truncate">{{product.id}}</p>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- ItemNumber Column -->
+                <ng-container matColumnDef="ItemNumber">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Item Number</mat-header-cell>
+                    <mat-cell *matCellDef="let product">
+                        <p class="text-truncate">{{product.ItemNumber}}</p>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- ItemDescription Column -->
+                <ng-container matColumnDef="ItemDescription">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Item Description</mat-header-cell>
+                    <mat-cell *matCellDef="let product">
+                        <p class="text-truncate">{{product.ItemDescription}}</p>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- HTCCode Column -->
+                <ng-container matColumnDef="HTCCode">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>HTC Code</mat-header-cell>
+                    <mat-cell *matCellDef="let product">
+                        <p class="text-truncate">{{product.HTCCode}}</p>
+                    </mat-cell>
+                </ng-container>
+
+                <!-- UpdatedOn Column -->
+                <ng-container matColumnDef="UpdatedOn">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Updated On</mat-header-cell>
+                    <mat-cell *matCellDef="let product">
+                        <p class="text-truncate">{{product.UpdatedOn | date}}</p>
                     </mat-cell>
                 </ng-container>
 
@@ -130,7 +165,7 @@
                 <mat-row *matRowDef="let product; columns: displayedColumns;"
                          class="product"
                          matRipple
-                         [routerLink]="'/e-commerce/products/'+product.id+'/'+product.handle">
+                         [routerLink]="'/e-commerce/products/'+product.id+'/'+product.ItemNumber">
                 </mat-row>
 
             </mat-table>
