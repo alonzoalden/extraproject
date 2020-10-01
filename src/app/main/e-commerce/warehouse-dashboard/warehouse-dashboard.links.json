@@ -1,0 +1,40 @@
+{
+    "links": [
+        {
+            "title": "Item Management",
+            "slug": "e-commerce/products",
+            "icon": "build",
+            "subclass": "Inbound"
+        },
+        {
+            "title": "Item Detail",
+            "slug": "e-commerce/products",
+            "icon": "build",
+            "subclass": "Inbound"
+        },
+        {
+            "title": "Shipment Info",
+            "slug": "warehouse/order-detail",
+            "icon": "receipt",
+            "subclass": "Inbound"
+        },
+        {
+            "title": "Button 3",
+            "slug": "warehouse/bin-allocation",
+            "icon": "info",
+            "subclass": "Outbound"
+        },
+        {
+            "title": "Button 4",
+            "slug": "warehouse/bin-allocation-multi",
+            "icon": "add_location",
+            "subclass": "Outbound"
+        },
+        {
+            "title": "Button 5",
+            "slug": "warehouse/bin-detail",
+            "icon": "event_note",
+            "subclass": "General"
+        }
+    ]
+}

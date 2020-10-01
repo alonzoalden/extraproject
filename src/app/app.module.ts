@@ -16,11 +16,21 @@ import { FuseModule } from '@fuse/fuse.module';
 import { FuseSharedModule } from '@fuse/shared.module';
 import { fuseConfig } from './fuse-config';
 import { LayoutModule } from './layout/layout.module';
+import { NotificationsService, SimpleNotificationsModule } from 'angular2-notifications';
+// import { LandingPageModule } from './main/e-commerce/landing/landing.module';
+import { LandingPageComponent } from './main/landing/landing.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { LoginModule } from './main/e-commerce/login/login.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LandingPageComponent,
+
   ],
   imports: [
     AppRoutingModule,
@@ -51,6 +61,20 @@ import { LayoutModule } from './layout/layout.module';
     // App modules
     LayoutModule,
     // AppStoreModule
+    //LandingPageModule,
+
+    MatButtonModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+
+    FuseSharedModule,
+
+    SimpleNotificationsModule.forRoot(),
+
+    LoginModule,
+    FlexLayoutModule,
   ],
   bootstrap: [
     AppComponent

@@ -3,7 +3,7 @@ import { ResolveEnd, Router } from '@angular/router';
 import { Platform } from '@angular/cdk/platform';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import * as _ from 'lodash';
+import * as _ from 'lodash-es';
 
 // Create the injection token for the custom settings
 export const FUSE_CONFIG = new InjectionToken('fuseCustomConfig');

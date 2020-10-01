@@ -1,0 +1,210 @@
+<div *ngIf="isLoggedin" class="spinner-container" style="width: 100%;">
+    <div class="sk-spinner sk-spinner-three-bounce big-spinner">
+        <div class="sk-bounce1"></div>
+        <div class="sk-bounce2"></div>
+        <div class="sk-bounce3"></div>
+    </div>
+    <br>
+    <p class="text-center" style="letter-spacing: 1px;">LOADING</p>
+</div>
+
+
+<div class="home-theme-layout" id="page-top" #home *ngIf="!isLoggedin" style="width: 100%;">
+        <!-- <div class="navbar-wrapper">
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header page-scroll">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">
+                            <div class="logo" style="width: 70px;">
+                                <img src="assets/images/logos/fuse.svg">
+                            </div>
+                        </a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-center">
+                            <li><a data-toggle="collapse" data-target=".navbar-collapse" class="page-scroll" (click)="scrollToElement(home, 'home-nav')" [ngClass]="{'selected-button': id === 'home-nav' }">Home</a></li>
+                            <li><a data-toggle="collapse" data-target=".navbar-collapse" class="page-scroll" (click)="scrollToElement(features, 'features-nav')" [ngClass]="{'selected-button': id === 'features-nav' }">Features</a></li>
+                            <li>
+                                <a class="page-scroll" [routerLink]="['/registration']"><strong>Sign Up</strong></a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a *ngIf="!isLoggedin" class="page-scroll" routerLink="/login">Log in <i class="fa fa-sign-in"></i> </a>
+                                <a *ngIf="isLoggedin" (click)="logout()">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div> -->
+        <div style="background-color: rgba(255, 255, 255, 0.9); position: absolute; width: 100%; padding: 12px 18px;" fxLayoutAlign="center center" >
+            <section style="max-width: 1100px; width: 100%;" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxFlex fxLayoutAlign="flex-start center">
+                    <div class="logo" style="width: 70px;" >
+                        <img src="assets/images/logos/fuse.svg"> 
+                    </div>
+                    <span style="font-size: 24px; color:black; margin-left: 12px; font-weight: 700;" >Company</span>
+                </div>
+                <div fxFlex fxLayoutAlign="flex-end center">
+                    <a style="font-size: 24px; color:black; margin-left: 12px; font-weight: 700;" routerLink="/login">LOG IN <mat-icon style="font-size: 24; width: 24; height: 24; margin-left: 8px;">arrow_forward</mat-icon></a>
+                    
+                </div>
+            </section>
+        </div>        
+
+        <section class="main-display-container">
+            <div class="background-img">
+                <div class="main-display-content">
+                    <h1 class="main-title animated fadeInRight">
+                        Easily Manage Warehouse Inventory
+                    </h1>
+                    <button class="btn btn-default btn-home-signup animated fadeInLeft" [routerLink]="['/registration']">SIGN UP NOW</button>
+                </div>
+            </div>
+            <div #features class="features-start-point"></div>
+        </section>
+
+        <!-- Content -->
+        <div class="landing-page" fxLayout="column" fxLayoutAlign="start center">
+            <section id="features" class="container services"  style="max-width: 1100px;">
+                <div class="row animated fadeIn" fxLayout="row" fxLayout.lt-md="column">
+                    <div class="col-sm-4" style="padding: 20px 40px;">
+                        <h2>Expand your market reach</h2>
+                        <p>Reach more buyers and get more sales. Toolots attracts visitors from around the world and we invest our resources to promote your brand.</p>
+                    </div>
+                    <div class="col-sm-4" style="padding: 20px 40px;">
+                        <h2>Dedicated Product Managers</h2>
+                        <p>Our Product Management teams are available when you need them—they assist with listings, inventory, warehousing, and additional benefits and services, should you need them. </p>
+                    </div>
+                    <div class="col-sm-4" style="padding: 20px 40px;">
+                        <h2>Optimized Visibility</h2>
+                        <p>We optimize your listings. We know industrial, and we know eCommerce; we’re here to help when you need us and work to get your products seen.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container features" style="padding-bottom: 30px; max-width: 1100px;">
+                <div class="row">
+                    <div class="col-lg-12 text-center m-b-sm animated fadeIn">
+                        <div class="navy-line"></div>
+                        <h1>Manage all aspects of your business <br/> <span class="navy">with Inventory Manager</span></h1>
+                    </div>
+                </div>
+                <div class="row" fxLayout="row" fxLayout.lt-md="column">
+                    <div fxFlex="20%" fxLayout="column" fxLayoutAlign="center center" class="col-md-3 text-center wow animated" animateOnScroll animationName="fadeInLeft">
+                        <div class="m-b-lg">
+                            <mat-icon style="font-size: 40px; width: 40px; height: 40px;" class="text-orange">build</mat-icon>
+                            <h2><span class="block text-navy">Manage</span> product listings</h2>
+                        </div>
+                        <div class="m-t-xxl">
+                            <mat-icon style="font-size: 40px; width: 40px; height: 40px; color: #e53935;" >location_on</mat-icon>
+                            <h2><span class="block text-navy">Track orders </span> from end to end</h2>
+                        </div>
+                    </div>
+                    <div fxFlex="60%" class="col-md-6 text-center wow zoomIn m-b-lg">
+                        <img style="width: 50%; min-width: 500px;" src="https://content-merchantportal.toolots.net/assets/images/buildings.jpg" alt="dashboard" class="img-responsive">
+                    </div>
+                    <div fxFlex="20%" fxLayout="column" fxLayoutAlign="center center" class="col-md-3 text-center wow fadeIn animated" animateOnScroll animationName="fadeInRight">
+                        <div class="m-b-lg">
+                            <mat-icon style="font-size: 40px; width: 40px; height: 40px;" class="vivid-green">pie_chart</mat-icon>
+                            <h2><span class="block text-navy">Monitor</span> sales analytics</h2>
+                        </div>
+                        <div class="m-t-xxl">
+                            <mat-icon style="font-size: 40px; width: 40px; height: 40px; color: #3949ab">people_alt</mat-icon>
+                            <h2><span class="block text-navy">Customize</span> your business</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- <section class="gray-section ">
+                <div class="container">
+                    <div class="col-lg-12 text-center" animateOnScroll animationName="animated fadeIn">
+                        <div class="navy-line"></div>
+                        <h1>Our goal is to make sure<br/> you have everything you need to operate<br/> <span class="navy"> your new business on <span class="text-orange">Toolots.</span></span></h1>
+                    </div>
+                </div>
+            </section> -->
+            <section class="gray-section bg-signup2 m-t-n" style="padding: 40px 20px;">
+                <div class="container">
+                    <div class="col-lg-12 text-center" animateOnScroll animationName="animated fadeIn">
+                        <div class="navy-line"></div>
+                        <h1>Our goal is to make sure<br/> you have everything you need to operate<br/> <span class="navy"> your new <span class="text-orange">business.</span></span></h1>
+                        <p animateOnScroll animationName="animated fadeInDown"> Follow these simple steps...</p>
+
+                        <!-- <h1> Here's how to get started...</h1>
+                        <p>Our goal is to make sure<br/> you have everything you need to operate<br/> <span class="navy"> your new business on <span class="text-orange">Toolots.</span></span></p> -->
+                    </div>
+                    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center">
+                        <div class="col-lg-12 text-center" animateOnScroll animationName="animated fadeInDown">
+                            <div class="navy-line"></div>
+                            <!-- <h1>Here's how to get started:</h1> -->
+                        </div>
+                        <div style="padding: 20px;" class="col-lg-2 text-center center-block p-md animated pointer" animateOnScroll animationName="animated fadeInDown" [routerLink]="['/registration']">
+                            <h1><i class="fa fa-user-o m-l-xs"></i></h1>
+                            <p class="text-black"><strong><span class="circle-green">1</span>Sign Up</strong></p>
+                        </div>
+                        <div style="padding: 24px 18px;" class="col-lg-2 text-center center-block p-md" animateOnScroll animationName="animated fadeInDown">
+                            <h1><i class="fa fa-list-ul m-l-xs"></i></h1>
+                            <p class="text-black"><span class="circle-green">2</span>List your products </p>
+                        </div>
+                        <div style="padding: 24px 18px;" class="col-lg-2 text-center center-block p-md" animateOnScroll animationName="animated fadeInDown">
+                            <h1><i class="fa fa-dollar m-l-xs"></i></h1>
+                            <p class="text-black"> <span class="circle-green">3</span> Get sales </p>
+                        </div>
+                        <div style="padding: 24px 18px;" class="col-lg-2 text-center center-block p-md" animateOnScroll animationName="animated fadeInDown">
+                            <h1> <i class="fa fa-truck m-l-xs"></i></h1>
+                            <p class="text-black"> <span class="circle-green">4</span> Ship your orders </p>
+                        </div>
+                        <div style="padding: 24px 18px;" class="col-lg-2 text-center center-block p-md" animateOnScroll animationName="animated fadeInDown">
+                            <h1><i class="fa fa-money m-l-xs"></i></h1>
+                            <p class="text-black"><span class="circle-green">5</span> Get paid! </p>
+                        </div>
+                        <div style="padding: 24px 18px;" class="col-lg-2 text-center center-block p-md" animateOnScroll animationName="animated fadeInDown">
+                            <h1><i class="fa fa-bar-chart-o m-l-xs"></i></h1>
+                            <p class="text-black">  <span class="circle-green">6</span>  Optimize listings</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section id="contact" class="gray-section contact m-t-lg" style="padding: 40px 20px;">
+            <div class="container">
+                <div class="row m-b-lg">
+                    <div class="col-lg-12 text-center">
+                        <div class="navy-line"></div>
+                        <h1>Contact Us</h1>
+                        <p>Feel free to reach out any time!</p>
+                    </div>
+                </div>
+                    <div class="row m-b-lg">
+                    <div class="col-lg-12 text-center">
+                        <address>
+                            <strong><span class="navy">Company (Headquarters)</span></strong><br/>
+                            555 Apple Lane<br/>
+                            Los Angeles, CA 90012<br/>
+                        </address>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <p>(888) 888-8888
+                            <br><a href="mailto:info@info.com">info@info.com</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                        <p><strong>&copy; 2020</strong><br/></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>

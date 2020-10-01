@@ -1,0 +1,77 @@
+<div id="warehouse-dashboard" class="page-layout simple">
+    <!-- HEADER -->
+    <div class="header accent p-16 p-sm-24" fxLayout="column" fxLayoutAlign="center center">
+        <div class="toolbar w-100-p" fxFlex fxLayout="row" fxLayoutAlign="space-between start">
+            <div class="left-side" fxLayout="row"></div>
+            <div class="right-side" fxLayout="row">
+                <button *ngIf="!searchEnabled" (click)="searchEnabled = !searchEnabled" mat-icon-button aria-label="Search" matTooltip="Search">
+                    <mat-icon>search</mat-icon>
+                </button>
+                <mat-form-field *ngIf="searchEnabled">
+                    <mat-label>Search for a link</mat-label>
+                    <div fxFlex fxLayout="row" >
+                        <input matInput placeholder="Enter a keyword..."
+                            [(ngModel)]="searchTerm"
+                            (input)="filterLinksByTerm()">
+                        <mat-icon (click)="cancelSearch()">cancel</mat-icon>
+                    </div>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="hero-text">
+            <mat-icon class="hero-icon">business</mat-icon>
+            <h1 [@animate]="{value:'*',params:{delay:'100ms', y:'25px'}}">
+                WAREHOUSE GADGETS
+            </h1>
+        </div>
+
+    </div>
+    <!-- / HEADER -->
+
+    <!-- CONTENT -->
+    <div class="content p-24">
+        <div fxLayout="column" fxLayoutAlign="center">
+            <div class="courses" fxLayout="row wrap" fxLayoutAlign="start" [@animateStagger]="{value:'50'}">
+                <div class="course" *ngFor="let course of filteredLinks; index as i" fxFlex="50" fxFlex.gt-xs="50"
+                     fxFlex.gt-sm="20" [ngClass]="course.category" [@animate]="{value:'*',params:{y:'100%'}}">
+                    <div class="course-content" fxLayout="column" fxFlex="1 1 auto">
+                        <div class="content" fxLayout="column" fxLayoutAlign="center center" fxFlex="1 1 auto">
+                            <a class="button-link" (click)="goto(course.slug)" >
+                                <button #matRipple mat-fab color="primary">
+                                    <span style="margin-left: -3px;" *ngIf="course.title == 'Bin - Allocation Multi'" fxLayout="column" fxLaayoutAlign="center center">
+                                        <span fxLayout="row" fxLayoutAlign="space-between center">
+                                            <mat-icon class="main-icon" style="font-size: 30px; width: 30px; height: 30px;">{{course.icon}}</mat-icon>
+                                            <mat-icon class="main-icon" style="font-size: 36px; width: 36px; height: 36px;">{{course.icon}}</mat-icon>
+                                            <mat-icon class="main-icon" style="font-size: 30px; width: 30px; height: 30px;">{{course.icon}}</mat-icon>
+                                        </span>
+                                    </span>
+                                    <span style="padding: 0; margin-top: -14px;" *ngIf="course.title == 'Carton - Transfer Multi'" fxLayout="column" fxLaayoutAlign="center center">
+                                        <span fxLayout="column" fxLayoutAlign="space-between center">
+                                            <mat-icon class="main-icon" style="font-size: 30px; width: 30px; height: 30px;">{{course.icon}}</mat-icon>
+                                            <mat-icon class="main-icon" style="font-size: 30px; width: 30px; height: 30px;">{{course.icon}}</mat-icon>
+                                            <mat-icon class="main-icon" style="font-size: 30px; width: 30px; height: 30px;">{{course.icon}}</mat-icon>
+                                        </span>
+                                    </span>
+                                    <ng-container *ngIf="
+                                        course.title !== 'Bin - Allocation Multi'
+                                        && course.title !== 'Carton - Transfer Multi'
+                                    ">
+                                        <mat-icon class="main-icon">{{course.icon}}</mat-icon>
+                                    </ng-container>
+                                    <mat-icon class="bg-icon">business</mat-icon>
+                                </button>
+                                <div class="title">
+                                    {{course.title}}
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="no-courses" *ngIf="filteredLinks.length === 0">
+                    No gadgets found!
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- / CONTENT -->
+</div>
