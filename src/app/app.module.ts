@@ -16,20 +16,23 @@ import { FuseModule } from '@fuse/fuse.module';
 import { FuseSharedModule } from '@fuse/shared.module';
 import { fuseConfig } from './fuse-config';
 import { LayoutModule } from './layout/layout.module';
-import { NotificationsService, SimpleNotificationsModule } from 'angular2-notifications';
-// import { LandingPageModule } from './main/e-commerce/landing/landing.module';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 import { LandingPageComponent } from './main/landing/landing.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { LoginModule } from './main/e-commerce/login/login.module';
+import { LoginModule } from './main/login/login.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { WarehouseItemManagerModule } from './main/item-manager/warehouse-item-manager.module';
+import { LandingPageModule } from './main/landing/landing.module';
+import { WarehouseDashboardComponent } from './main/warehouse-dashboard/warehouse-dashboard.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent,
+    // LandingPageComponent,
+    WarehouseDashboardComponent
 
   ],
   imports: [
@@ -61,20 +64,24 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     // App modules
     LayoutModule,
     // AppStoreModule
-    //LandingPageModule,
+    LandingPageModule,
 
     MatButtonModule,
     MatCheckboxModule,
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    
 
     FuseSharedModule,
 
     SimpleNotificationsModule.forRoot(),
-
-    LoginModule,
     FlexLayoutModule,
+
+    
+    LoginModule,
+    WarehouseItemManagerModule,
+    
   ],
   bootstrap: [
     AppComponent

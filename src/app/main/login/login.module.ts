@@ -12,7 +12,7 @@ import { LoginComponent } from './login.component';
 
 const routes = [
     {
-        path     : 'login',
+        path     : '',
         component: LoginComponent
     }
 ];

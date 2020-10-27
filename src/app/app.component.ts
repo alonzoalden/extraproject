@@ -112,12 +112,12 @@ export class AppComponent implements OnInit, OnDestroy {
      * On init
      */
     ngOnInit(): void {
+        this.appService.loadAllItemList();
         
         this.appService.getCurrentMember();
         this.router.events.subscribe(
             (event: any) => {
                 if (event instanceof NavigationEnd) {
-                    console.log(event.url);
                     if (event.url == '/') {
                         this.isLanding = true;
                     }

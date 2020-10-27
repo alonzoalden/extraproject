@@ -13,7 +13,7 @@ export class FakeDbService implements InMemoryDbService
             // 'e-commerce-products' : ECommerceFakeDb.products,
             // 'e-commerce-orders'   : ECommerceFakeDb.orders,
             'e-commerce-products' : ItemFakeDb.current,
-            
+            'allitemlist' : ItemFakeDb.current,
         };
     }
 }

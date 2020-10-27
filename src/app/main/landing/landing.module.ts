@@ -10,20 +10,12 @@ import { FuseSharedModule } from '@fuse/shared.module';
 
 import { LandingPageComponent } from './landing.component';
 
-const routes: Routes = [
-    {
-        path: '',
-        component: LandingPageComponent
-    }
-];
 
 @NgModule({
     declarations: [
         LandingPageComponent
     ],
     imports: [
-        RouterModule.forChild(routes),
-
         MatButtonModule,
         MatCheckboxModule,
         MatFormFieldModule,

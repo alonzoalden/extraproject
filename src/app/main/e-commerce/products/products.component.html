@@ -19,7 +19,7 @@
                     shopping_basket
                 </mat-icon>
                 <span class="logo-text h1" [@animate]="{value:'*',params:{delay:'100ms',x:'-25px'}}">
-                    Products
+                    Items
                 </span>
             </div>
             <!-- / APP TITLE -->
@@ -28,7 +28,7 @@
             <div class="search-wrapper mx-32 mx-md-0">
                 <div style="background-color: #fff;" class="search" fxFlex fxLayout="row" fxLayoutAlign="start center">
                     <mat-icon style="color: #039be5 !important">search</mat-icon>
-                    <input #filter placeholder="Search for a product">
+                    <input #filter placeholder="Search for an item">
                 </div>
             </div>
             <!-- / SEARCH -->
@@ -37,7 +37,7 @@
             <button mat-raised-button
                     [routerLink]="'/e-commerce/products/new'"
                     class="add-product-button fuse-white mt-24 mt-md-0">
-                <span>ADD NEW PRODUCT</span>
+                <span>ADD NEW ITEM</span>
             </button>
             <!-- / ADD BUTTON -->
 

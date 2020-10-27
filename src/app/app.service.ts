@@ -3,7 +3,7 @@ import { OAuthService } from 'angular-oauth2-oidc';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'environments/environment';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
+import { tap, catchError, takeUntil } from 'rxjs/operators';
 import { Member } from './shared/class/member';
 
 @Injectable({
@@ -19,11 +19,13 @@ export class AppService {
         2: 'San Francisco',
         3: 'New York',
     };
+    allItemList: BehaviorSubject<any>;
     constructor(
         // private oauthService: OAuthService,
         private _httpClient: HttpClient
     ) {
         this.userInfo = new BehaviorSubject({});
+        this.allItemList = new BehaviorSubject([]);
     }
     get isLoggedin() {
         return true;
@@ -39,7 +41,21 @@ export class AppService {
         // this.oauthService.logOut();
     }
     
-
+    loadAllItemList(): any {
+        if (this.allItemList.value.length) {
+            return;
+        }
+        this._httpClient.get<any>('api/allitemlist')
+            //.pipe(takeUntil(this._unsubscribeAll))
+            .subscribe(
+                data => {
+                    this.allItemList.next(data);
+                },
+                error => {
+                    console.log(error);
+                },
+            );
+    }
     getAllMembers(): Observable<any> {
         return this._httpClient.get<any>(this.apiURL + '/member')
             .pipe(

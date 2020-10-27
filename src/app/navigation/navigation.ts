@@ -14,9 +14,16 @@ export const navigation: FuseNavigation[] = [
                 title    : 'E-Commerce',
                 translate: 'Item Management',
                 type     : 'collapsable',
-                icon     : 'edit',
-                url       : '/e-commerce/dashboard',
+                icon     : 'build',
+                url       : '/dashboard',
                 children : [
+                    {
+                        id        : 'shipments',
+                        title     : 'Shipments',
+                        type      : 'item',
+                        url       : '/shipments',
+                        exactMatch: true
+                    },
                     {
                         id        : 'products',
                         title     : 'Items',

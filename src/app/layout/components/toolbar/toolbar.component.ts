@@ -12,6 +12,7 @@ import { OAuthService } from 'angular-oauth2-oidc';
 import { AppService } from '../../../app.service';
 import { Member } from 'app/shared/class/member';
 import { NotificationsService } from 'angular2-notifications';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'toolbar',
@@ -40,6 +41,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         // private oauthService: OAuthService,
         public appService: AppService,
         private notifyService: NotificationsService,
+        private router: Router
 
     ) {
         // Set the defaults
@@ -107,7 +109,6 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         this.appService.userInfo
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(user => {
-                console.log(user)
                 this.userInfo = user
             });
     }
@@ -136,6 +137,7 @@ export class ToolbarComponent implements OnInit, OnDestroy {
     }
     logout() {
         //this.oauthService.logOut();
+        this.router.navigate(['/']);
     }
     onUpdateLocation(key) {
         const updatedUserInfo = { ...this.appService.userInfo.value };

@@ -27,18 +27,8 @@ import { EcommerceOrdersComponent } from 'app/main/e-commerce/orders/orders.comp
 import { EcommerceOrdersService } from 'app/main/e-commerce/orders/orders.service';
 import { EcommerceOrderComponent } from 'app/main/e-commerce/order/order.component';
 import { EcommerceOrderService } from 'app/main/e-commerce/order/order.service';
-import { LoginComponent } from './login/login.component';
-import { WarehouseDashboardComponent } from './warehouse-dashboard/warehouse-dashboard.component';
 
 const routes: Routes = [
-    {
-        path     : 'dashboard',
-        component: WarehouseDashboardComponent,
-    },
-    {
-        path     : 'login',
-        component: LoginComponent,
-    },
     {
         path     : 'products',
         component: EcommerceProductsComponent,
@@ -82,7 +72,6 @@ const routes: Routes = [
         EcommerceProductComponent,
         EcommerceOrdersComponent,
         EcommerceOrderComponent,
-        WarehouseDashboardComponent
     ],
     imports     : [
         RouterModule.forChild(routes),
