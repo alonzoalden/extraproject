@@ -1,0 +1,34 @@
+@import "src/@fuse/scss/fuse";
+
+steps-preview {
+    flex: 1;
+    display: flex;
+    .main {
+        padding: 12px;
+        width: 100%;
+    }
+    .circle {
+        height: 50px;
+        width: 50px;
+        min-width: 50px;
+        background-color: #dadada;
+        // border: 1px solid #fafafa;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #777;
+    }
+    .complete {
+        font-size: 9px;
+        font-weight: 600;
+        color: #999;
+        letter-spacing: 0.2px;
+        min-width: 50px;
+    }
+    hr {
+        //border-style: ridge;
+        height: 2px;
+    }
+}
+

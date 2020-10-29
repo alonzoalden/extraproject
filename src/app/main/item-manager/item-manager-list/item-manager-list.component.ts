@@ -38,7 +38,7 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
     imageURL = environment.imageURL;
     files: any;
     dataSource: any;
-    displayedColumns = ['Actions', 'ItemName', 'detail-button'];
+    displayedColumns = ['ItemNumber', 'HTCCode', 'UpdatedOn', 'Steps', 'detail-button'];
     selected: ItemList;
     isLoading: boolean;
     isLeadRole: boolean;
@@ -197,8 +197,8 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
             .subscribe(response => { });
     }
     focusMainInput() {
-        if (this.inputEnabled) {
-            setTimeout(() => this.mainInput.nativeElement.focus(), 10);
-        }
+        // if (this.inputEnabled) {
+        //     setTimeout(() => this.mainInput.nativeElement.focus(), 10);
+        // }
     }
 }

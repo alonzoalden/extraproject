@@ -32,6 +32,8 @@ import { PotentialLocationDialogComponent } from './dialogs/potential-location/p
 import { InventoryDetailDialogComponent } from './dialogs/inventory-detail/inventory-detail.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrintLabelDialogComponent } from './dialogs/print-label/print-label.component';
+import { StepsPreviewComponent } from './steps-preview/steps-preview.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const routes: Routes = [
     {
@@ -54,10 +56,12 @@ const routes: Routes = [
         CartonInformationDialogComponent,
         InventoryDetailDialogComponent,
         PotentialLocationDialogComponent,
-        PrintLabelDialogComponent
+        PrintLabelDialogComponent,
+        StepsPreviewComponent
     ],
     imports: [
         RouterModule.forChild(routes),
+        MatExpansionModule,
         MatProgressSpinnerModule,
         MatButtonModule,
         MatIconModule,
