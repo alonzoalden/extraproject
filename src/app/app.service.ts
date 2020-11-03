@@ -68,7 +68,6 @@ export class AppService {
         return new Promise((resolve, reject) => {
             this._httpClient.get('api/member')
                 .subscribe((response: any) => {
-                    console.log(response)
                     //this.onFilesChanged.next(response);
                     //this.onFileSelected.next(response[0]);
                     this.userInfo.next(response);

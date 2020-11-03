@@ -30,10 +30,13 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CartonInformationDialogComponent } from './dialogs/carton-information/carton-information.component';
 import { PotentialLocationDialogComponent } from './dialogs/potential-location/potential-location.component';
 import { InventoryDetailDialogComponent } from './dialogs/inventory-detail/inventory-detail.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PrintLabelDialogComponent } from './dialogs/print-label/print-label.component';
 import { StepsPreviewComponent } from './steps-preview/steps-preview.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ViewShipmentDialogComponent } from './dialogs/view-shipment/view-shipment.component';
+import { ChatPanelShipmentsComponent } from './dialogs/view-shipment/chat-panel/chat-panel.component';
+// import { ChatPanelShipmentModule } from 'app/main/chat-panel/chat-panel.module';
 
 const routes: Routes = [
     {
@@ -57,7 +60,9 @@ const routes: Routes = [
         InventoryDetailDialogComponent,
         PotentialLocationDialogComponent,
         PrintLabelDialogComponent,
-        StepsPreviewComponent
+        StepsPreviewComponent,
+        ViewShipmentDialogComponent,
+        ChatPanelShipmentsComponent
     ],
     imports: [
         RouterModule.forChild(routes),
@@ -85,7 +90,7 @@ const routes: Routes = [
         MatSnackBarModule,
         MatRadioModule,
         FuseSharedModule,
-        FuseSidebarModule
+        FuseSidebarModule,
     ],
     providers: [
         WarehouseItemManagerService,
@@ -96,7 +101,8 @@ const routes: Routes = [
         CartonInformationDialogComponent,
         InventoryDetailDialogComponent,
         PotentialLocationDialogComponent,
-        PrintLabelDialogComponent
+        PrintLabelDialogComponent,
+        ViewShipmentDialogComponent
     ]
 })
 export class WarehouseItemManagerModule {

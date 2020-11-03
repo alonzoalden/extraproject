@@ -1,0 +1,277 @@
+<div class="dialog-content-wrapper" fxLayout="column">
+    <div class="toolbar accent" fxLayout="row" fxLayoutAlign="space-between center" style="padding: 0 12px 0 24px;">
+        <h1>Shipment #123123</h1>
+        <button [disabled]="isLoading" aria-label="close" mat-icon-button (click)="matDialogRef.close();">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+    <div mat-dialog-content fxLayout="row" fxFlex style="position: relative; margin: 0 !important; padding: 0 !important">
+        <div fxFlex fxLayout="column">
+            <mat-tab-group fxFlex (selectedTabChange)="onSelectedTabChange()" [selectedIndex]="selectedTabIndex" #tabGroup class="accent">
+                <mat-tab [disabled]="isLoading" label="Quantity">
+                    <ng-template mat-tab-label>
+                        <span style="margin-right: 7px;">Form 1</span>
+                        <mat-icon style="color: red;">error_outline</mat-icon>
+                    </ng-template>
+                    <div class="content" style="height: 100%; display: flex; flex-direction: column;"
+                        [@animate]="{value:'*',params:{x:'100%'}}" style="background-color: #fff; color: #000 !important; height: 100%; overflow: hidden;">
+                        
+                        <!-- HEADER  -->
+                        <div class="sub-header" fxLayout="column" fxLayoutAlign="center start" style="padding-bottom: 0px !important;">
+                            <div class="header-section" fxLayout="row" style="padding-top: 0;">
+                                <div class="breadcrumb text-truncate h1 p24" style="width: 100%; text-align: left;">
+                                    <h1>Complete Form Information</h1>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        <!-- /HEADER  -->
+
+                        
+                        <div class="p-24 m-0"
+                            style="padding-top: 24px !important; background-color: #fff; -webkit-overflow-scrolling: touch;
+                                overflow: auto !important;">
+                            <div *ngIf="composeForm">
+                                <form name="composeForm" [formGroup]="composeForm" class="compose-form" fxLayout="column" fxFlex>
+                                    <div fxLayout="row">
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p"
+                                            style="margin-right: 12px;">
+                                            <mat-label>Length (in)</mat-label>
+                                            <input matInput placeholder="Length" name="Length" formControlName="Length" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                            <mat-label>Width (in)</mat-label>
+                                            <input matInput placeholder="Width" name="Width" formControlName="Width" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                    </div>
+                                    <div fxLayout="row">
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p"
+                                            style="margin-right: 12px;">
+                                            <mat-label>Height (in)</mat-label>
+                                            <input matInput placeholder="Height" name="Height" formControlName="Height" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                            <mat-label>Weight (lb)</mat-label>
+                                            <input matInput placeholder="Weight" name="Weight" formControlName="Weight" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                    </div>
+                                    <!-- <div fxLayout="row">
+                                        <mat-form-field appearance="outline" floatLabel="always" style="margin-right: 12px;">
+                                            <mat-label>Package Type</mat-label>
+                                            <mat-select (selectionChange)="handleCreateChange()" required placeholder="Package Type" name="PackageType" formControlName="PackageType">
+                                                <mat-option *ngFor="let item of packageTypes" value="{{item}}">{{ item }}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline" floatLabel="always">
+                                            <mat-label>Toolots Pallet</mat-label>
+                                            <mat-select placeholder="Toolots Pallet" name="ToolotsPallet" formControlName="ToolotsPallet" required>
+                                                <mat-option value="None">{{ 'None' }}</mat-option>
+                                                <mat-option *ngFor="let item of palletTypes" [value]="item">{{ item.PalletName }}</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+                                    </div> -->
+                                    <div fxLayout="row">
+                                        <mat-form-field fxFlex.gt-sm="50%" appearance="outline" floatLabel="always" class="w-100-p">
+                                            <mat-label>Pieces</mat-label>
+                                            <input matInput placeholder="Pieces" name="Pieces" formControlName="Pieces" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+
+                <mat-tab [disabled]="isLoading" label="Dimensions">
+                    <ng-template mat-tab-label>
+                        <span style="margin-right: 7px;">Form 2</span>
+                        <mat-icon style="color: red;" *ngIf="!composeForm?.valid">error_outline</mat-icon>
+                    </ng-template>
+                    <div class="content" style="height: 100%; display: flex; flex-direction: column;"
+                        [@animate]="{value:'*',params:{x:'100%'}}" style="background-color: #fff; color: #000 !important; height: 100%; overflow: hidden;">
+                        
+                        <!-- HEADER  -->
+                        <div class="sub-header" fxLayout="column" fxLayoutAlign="center start" style="padding-bottom: 0px !important;">
+                            <div class="header-section" fxLayout="row" style="padding-top: 0;">
+                                <div class="breadcrumb text-truncate h1 p24" style="width: 100%; text-align: left;">
+                                    <h1>Complete Form Information</h1>
+                                </div>
+                            </div>
+                            <!-- <div class="hero-text">
+                                <mat-icon class="hero-icon">next_week</mat-icon>
+                            </div> -->
+                        </div>
+                        <!-- /HEADER  -->
+
+                        
+                        <div class="p-24 m-0"
+                            style="padding-top: 24px !important; background-color: #fff; -webkit-overflow-scrolling: touch;
+                                overflow: auto !important;">
+                            <div *ngIf="composeForm">
+                                <form name="composeForm" [formGroup]="composeForm" class="compose-form" fxLayout="column" fxFlex>
+                                    <div fxLayout="row">
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p"
+                                            style="margin-right: 12px;">
+                                            <mat-label>Length (in)</mat-label>
+                                            <input matInput placeholder="Length" name="Length" formControlName="Length" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                            <mat-label>Width (in)</mat-label>
+                                            <input matInput placeholder="Width" name="Width" formControlName="Width" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                    </div>
+                                    <div fxLayout="row">
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p"
+                                            style="margin-right: 12px;">
+                                            <mat-label>Height (in)</mat-label>
+                                            <input matInput placeholder="Height" name="Height" formControlName="Height" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                            <mat-label>Weight (lb)</mat-label>
+                                            <input matInput placeholder="Weight" name="Weight" formControlName="Weight" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                    </div>
+                                    
+                                    <div fxLayout="row">
+                                        <mat-form-field fxFlex.gt-sm="50%" appearance="outline" floatLabel="always" class="w-100-p">
+                                            <mat-label>Pieces</mat-label>
+                                            <input matInput placeholder="Pieces" name="Pieces" formControlName="Pieces" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+
+                <mat-tab [disabled]="isLoading" label="Picture" class="accent">
+                    <ng-template mat-tab-label>
+                        <span style="margin-right: 7px;">Form 3</span>
+                        <mat-icon style="color: red;">error_outline</mat-icon>
+                    </ng-template>
+                    <div class="content" style="height: 100%; display: flex; flex-direction: column;"
+                        [@animate]="{value:'*',params:{x:'100%'}}" style="background-color: #fff; color: #000 !important; height: 100%; overflow: hidden;">
+                        
+                        <!-- HEADER  -->
+                        <div class="sub-header" fxLayout="column" fxLayoutAlign="center start" style="padding-bottom: 0px !important;">
+                            <div class="header-section" fxLayout="row" style="padding-top: 0;">
+                                <div class="breadcrumb text-truncate h1 p24" style="width: 100%; text-align: left;">
+                                    <h1>Complete Form Information</h1>
+                                </div>
+                            </div>
+                            <!-- <div class="hero-text">
+                                <mat-icon class="hero-icon">next_week</mat-icon>
+                            </div> -->
+                        </div>
+                        <!-- /HEADER  -->
+
+                        
+                        <div class="p-24 m-0"
+                            style="padding-top: 24px !important; background-color: #fff; -webkit-overflow-scrolling: touch;
+                                overflow: auto !important; ">
+                            <div *ngIf="composeForm">
+                                <form name="composeForm" [formGroup]="composeForm" class="compose-form" fxLayout="column" fxFlex>
+                                    <div fxLayout="row">
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p"
+                                            style="margin-right: 12px;">
+                                            <mat-label>Length (in)</mat-label>
+                                            <input matInput placeholder="Length" name="Length" formControlName="Length" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                            <mat-label>Width (in)</mat-label>
+                                            <input matInput placeholder="Width" name="Width" formControlName="Width" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                    </div>
+                                    <div fxLayout="row">
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p"
+                                            style="margin-right: 12px;">
+                                            <mat-label>Height (in)</mat-label>
+                                            <input matInput placeholder="Height" name="Height" formControlName="Height" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                        <mat-form-field appearance="outline" floatLabel="always" class="w-100-p">
+                                            <mat-label>Weight (lb)</mat-label>
+                                            <input matInput placeholder="Weight" name="Weight" formControlName="Weight" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                    </div>
+                                    
+                                    <div fxLayout="row">
+                                        <mat-form-field fxFlex.gt-sm="50%" appearance="outline" floatLabel="always" class="w-100-p">
+                                            <mat-label>Pieces</mat-label>
+                                            <input matInput placeholder="Pieces" name="Pieces" formControlName="Pieces" type="tel"
+                                                min="0" required>
+                                        </mat-form-field>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+            
+            
+
+
+            <div mat-dialog-actions class="m-0" style="padding: 16px 24px;" fxLayout="row"
+                fxLayoutAlign="space-between center">
+                <!-- <div fxLayoutAlign="center center" *ngIf="tabGroup">
+                    <button (click)="onHandlePrev()" mat-raised-button color="primary" class="save-button next"
+                        
+                        style="height: 72px !important;" aria-label="Back">
+                        <div fxLayoutAlign="center">
+                            <span class="btn-title" fxLayoutAlign="center center"><mat-icon style="margin-right: 7px;">arrow_back</mat-icon>Back</span>
+                        </div>
+                    </button>
+                    <button (click)="onHandleNext()" mat-raised-button color="primary" class="save-button next"
+                        
+                        style="height: 72px !important;" aria-label="Next">
+                        <div fxLayoutAlign="center">
+                            <span class="btn-title" fxLayoutAlign="center center">Next<mat-icon style="margin-left: 7px;">arrow_forward</mat-icon></span>
+                        </div>
+                    </button>
+                </div> -->
+                <button mat-raised-button (click)="onDialogClose()" color="primary" class="save-button"
+                    style="width: 221px; height: 72px !important;" aria-label="SAVE">
+                    <div fxLayoutAlign="center">
+                        <span class="btn-title" *ngIf="!isLoading">SAVE</span>
+                        <mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+
+        <!-- CHAT PANEL  style="position: relative !important; max-height: 79vh;" -->
+        <div style="height: 100%; position: relative;">
+            
+            <!-- <fuse-sidebar name="chatPanel" position="right" class="chat-panel right-chat-panel"
+                
+                [folded]="true" [foldedWidth]="70" [foldedAutoTriggerOnHover]="false"
+                lockedOpen="gt-md">
+            </fuse-sidebar> -->
+            <!-- <chat-panel></chat-panel> -->
+
+            <chat-panel-shipments style="height: 100%; position: relative;"></chat-panel-shipments>
+        </div>
+        <!-- / CHAT PANEL -->
+
+
+
+    </div>
+
+
+    
+</div>

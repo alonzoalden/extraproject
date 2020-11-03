@@ -108,9 +108,34 @@ simple-notifications {
     width: 0px;
 }
 .mat-dialog-container {
-  padding: 0;
+  padding: 0 !important;
 }
-  
+.chat-dialog-title,
+.mat-tab-label {
+  color: #fff !important;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.mat-tab-label {
+  height: 64px !important;
+  max-height: 64px;
+  min-height: 64px;
+}
+
+.mat-tab-body-wrapper {
+  height: 100% !important;
+}
+.mat-form-field-label {
+  color: rgba(0, 0, 0, 0.54) !important;
+}
+.cdk-overlay-pane {
+  max-width: 94vw !important;
+}
+
+// mat-cell:first-of-type, mat-header-cell:first-of-type, mat-footer-cell:first-of-type {
+//   margin-left: 24px;
+// }
 @keyframes ellipsis {
   to {
     width: 20px;    

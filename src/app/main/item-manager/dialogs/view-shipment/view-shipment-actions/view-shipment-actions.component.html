@@ -1,0 +1,33 @@
+<!-- SIDEBAR CONTENT -->
+<div class="content p-24" fxLayout="column" style="min-height: 200px !important;">
+    <div fxLayout="column" fxLayoutAlign="start center" style="flex: 1;"
+        [@animate]="{value:'*',params:{delay:'250ms',scale:'0.2'}}">
+        <!-- <div style="margin: 20px 0 20px 0; width: 100%">
+            <button [disabled]="editConfirmQuantity || !selectedItemScan" class="main-action green" 
+                mat-raised-button 
+                (click)="addConfirmedQty()">
+                <mat-icon class="big-icon-button">add_circle</mat-icon>
+            </button>
+        </div>
+        <div style="margin-bottom: 20px; width: 100%">
+            <button [disabled]="editConfirmQuantity || !selectedItemScan" class="main-action red" (click)="subtractConfirmedQty()"
+                mat-raised-button>
+                <mat-icon class="big-icon-button">remove_circle</mat-icon>
+            </button>
+        </div> -->
+        <div style="margin-bottom: 20px; width: 100%">
+            <button (click)="enterConfirmQty()" [disabled]="!selectedFulfillmentPackageLine?.tpin"
+                class="main-action" mat-raised-button color="accent">
+                <span class="btn-title">Enter Qty</span>
+            </button>
+        </div>
+        <!-- <div style="margin-bottom: 20px; width: 100%">
+            <button (click)="enterConfirmQty()" 
+                class="main-action" mat-raised-button color="accent">
+                <span class="btn-title">Picture</span>
+            </button>
+        </div> -->
+    </div>
+</div>
+
+<!-- / SIDEBAR CONTENT -->

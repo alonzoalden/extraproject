@@ -3,16 +3,16 @@ import { FuseNavigation } from '@fuse/types';
 export const navigation: FuseNavigation[] = [
     {
         id       : 'applications',
-        title    : 'Applications',
-        translate: 'NAV.APPLICATIONS',
+        title    : '',
+        translate: '',
         type     : 'group',
         icon     : 'apps',
         children : [
             
             {
-                id       : 'e-commerce',
-                title    : 'E-Commerce',
-                translate: 'Item Management',
+                id       : 'Manage Shipments',
+                title    : 'Manage Shipments',
+                translate: 'Applications',
                 type     : 'collapsable',
                 icon     : 'build',
                 url       : '/dashboard',
@@ -22,61 +22,64 @@ export const navigation: FuseNavigation[] = [
                         title     : 'Shipments',
                         type      : 'item',
                         url       : '/shipments',
-                        exactMatch: true
                     },
+                    // {
+                    //     id        : 'products',
+                    //     title     : 'Items',
+                    //     type      : 'item',
+                    //     url       : '/e-commerce/products',
+                    //     exactMatch: true
+                    // },
+                    // {
+                    //     id        : 'productDetail',
+                    //     title     : 'Item Detail',
+                    //     type      : 'item',
+                    //     url       : '/e-commerce/products/1/printed-dress',
+                    //     // exactMatch: true
+                    // },
                     {
-                        id        : 'products',
-                        title     : 'Items',
+                        id        : 'orders',
+                        title     : 'Link 2',
                         type      : 'item',
-                        url       : '/e-commerce/products',
-                        exactMatch: true
-                    },
-                    {
-                        id        : 'productDetail',
-                        title     : 'Item Detail',
-                        type      : 'item',
-                        url       : '/e-commerce/products/1/printed-dress',
-                        // exactMatch: true
+                        url       : '/shipments1',
                     },
                     {
                         id        : 'orders',
                         title     : 'Link 3',
                         type      : 'item',
-                        url       : '/e-commerce/orders',
-                        exactMatch: true
+                        url       : '/shipments2',
                     },
                     {
                         id        : 'orderDetail',
                         title     : 'Link 4',
                         type      : 'item',
-                        url       : '/e-commerce/orders/1',
-                        exactMatch: true
+                        url       : '/shipments3',
                     }
                 ]
             },
-            {
-                id       : 'e-commerce-2',
-                title    : 'E-Commerce-2',
-                translate: 'Category 2',
-                type     : 'collapsable',
-                icon     : 'edit',
-                children : [
-                    {
-                        id        : 'products',
-                        title     : 'Link 1',
-                        type      : 'item',
-                        url       : '/e-commerce/products2',
-                        exactMatch: true
-                    },
-                    {
-                        id        : 'productDetail',
-                        title     : 'Link 2',
-                        type      : 'item',
-                        url       : '/e-commerce/products/1/printed-dress2',
-                        // exactMatch: true
-                    }
-                ]
-            },
+            // {
+            //     id       : 'e-commerce-2',
+            //     title    : 'E-Commerce-2',
+            //     translate: 'Category 2',
+            //     type     : 'collapsable',
+            //     icon     : 'edit',
+            //     children : [
+            //         {
+            //             id        : 'products',
+            //             title     : 'Link 1',
+            //             type      : 'item',
+            //             url       : '/e-commerce/products2',
+            //             exactMatch: true
+            //         },
+            //         {
+            //             id        : 'productDetail',
+            //             title     : 'Link 2',
+            //             type      : 'item',
+            //             url       : '/e-commerce/products/1/printed-dress2',
+            //             // exactMatch: true
+            //         }
+            //     ]
+            // },
         ]
     //         {
     //             id       : 'dashboards',

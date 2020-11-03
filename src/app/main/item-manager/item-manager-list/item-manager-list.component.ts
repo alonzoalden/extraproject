@@ -19,6 +19,7 @@ import { PrintLabelDialogComponent } from '../dialogs/print-label/print-label.co
 import { Member } from 'app/shared/class/member';
 import { AppService } from 'app/app.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
+import { ViewShipmentDialogComponent } from '../dialogs/view-shipment/view-shipment.component';
 
 @Component({
     selector: 'item-manager-list',
@@ -112,14 +113,29 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
         this._unsubscribeAll.complete();
     }
 
-    onSelect(selected: ItemList): void {
-        if (this.selected.ItemID !== selected.ItemID) {
-            this.warehouseItemManagerService.onItemSelected.next({});
-        }
+    onSelect(selected: any): void {
         // Use setTimeout to repeat animation
         setTimeout(() => this.warehouseItemManagerService.onItemSelected.next(selected), 0);
-        this.warehouseItemManagerService.getItemDimension(selected.ItemID).subscribe();
+        //this.warehouseItemManagerService.getItemDimension(selected.ItemID).subscribe();
         // .subscribe(item => this.selected.Dimensions.push(item));
+
+        
+    }
+    openShipment(selected: any) {
+        this.dialogRef = this._matDialog.open(ViewShipmentDialogComponent, {
+            data: { selected },
+            width: '100%',
+            height: '100%',
+            disableClose: true
+        });
+        this.dialogRef.afterClosed()
+            .subscribe(result => {
+                if (!result) {
+                    return;
+                }
+                // this.completePackRequest('managerCompletePack');
+            });
+        
     }
 
     toggleSidebar(name): void {
@@ -200,5 +216,9 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
         // if (this.inputEnabled) {
         //     setTimeout(() => this.mainInput.nativeElement.focus(), 10);
         // }
+    }
+    ev(ev: MouseEvent) {
+        console.log(ev);
+        ev.preventDefault();
     }
 }

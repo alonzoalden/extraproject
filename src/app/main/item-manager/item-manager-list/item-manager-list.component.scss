@@ -9,15 +9,18 @@ item-manager-list {
     .example-headers-align {
         overflow: auto;
     }
-      
+    .mat-expansion-panel-header {
+        height: 64px !important;
+        padding-left: 32px !important;
+    }
     .example-headers-align .mat-expansion-panel-header-title,
     .example-headers-align .mat-expansion-panel-header-description {
         flex-basis: 0;
         
     }
     .example-headers-align .mat-expansion-panel-header-title {
-        font-size: 18px;
-        font-weight: 600;
+        font-size: 22px;
+        font-weight: 700;
         letter-spacing: 0.5px;
     }
       
@@ -32,6 +35,11 @@ item-manager-list {
       
     .example-headers-align .mat-form-field + .mat-form-field {
         margin-left: 8px;
+    }
+    .mini-header {
+        max-height: 100% !important;
+        min-height: 0 !important;
+        height: auto !important;
     }
     .list-container {
         // height: 100%;
@@ -50,9 +58,10 @@ item-manager-list {
     }
     .sub-header {
         position: relative;
-        height: 240px;
-        min-height: 240px;
-        max-height: 240px;
+        height: 128px;
+        min-height: 128px;
+        max-height: 128px;
+        padding: 2px;
         text-align: center;
         overflow: hidden;
         width: 100%;
@@ -64,7 +73,7 @@ item-manager-list {
         }
         .breadcrumb {
             z-index: 1;
-            padding: 0 70px;
+            padding: 0 32px;
             flex-shrink: 0;
         }
         .hero-text {
@@ -111,9 +120,8 @@ item-manager-list {
         
         .action-container {
             display: flex;
-            padding: 0 70px;
-            width: 100%;
-            
+            padding: 0 20px;
+            width: 360px;
 
             .search-wrapper {
                 z-index: 12 !important;
@@ -134,17 +142,17 @@ item-manager-list {
 
                 .search {
                     width: 100% !important;
-                    height: 56px;
-                    line-height: 56px;
+                    height: 40px;
+                    line-height: 40px;
                     padding: 0 18px;
                     mat-icon {
                         color: #444 !important;
                     }
                     input {
                         flex: 1;
-                        height: 56px;
-                        min-height: 56px;
-                        max-height: 56px;
+                        height: 40px;
+                        min-height: 40px;
+                        max-height: 40px;
                         padding: 0 16px;
                         border: none;
                         outline: none;
