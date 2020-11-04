@@ -10,7 +10,7 @@ chat-panel-shipments {
     z-index: 99;
     overflow: hidden;
 
-    @include media-breakpoint('xs') {
+    @include media-breakpoint('lt-md') {
         max-width: none !important;
         width: 100% !important;
     }
@@ -374,6 +374,9 @@ chat-panel-shipments {
                 position: absolute;
                 right: 16px;
                 bottom: 21px;
+                .secondary-text {
+                    color: #999 !important;
+                }
             }
         }
     }

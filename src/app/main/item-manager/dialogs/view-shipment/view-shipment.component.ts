@@ -15,6 +15,7 @@ import { MatTabGroup } from '@angular/material/tabs';
 import { WarehouseItemManagerService } from '../../warehouse-item-manager.service';
 import { AnimationKeyframesSequenceMetadata } from '@angular/animations';
 import { FusePerfectScrollbarDirective } from '@fuse/directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
+import { MediaObserver } from '@angular/flex-layout';
 
 declare const dymo: any;
 
@@ -63,6 +64,7 @@ export class ViewShipmentDialogComponent implements OnInit, AfterViewInit, OnDes
         @Inject(MAT_DIALOG_DATA) public _data: any,
         private notifyService: NotificationsService,
         public _matDialog: MatDialog,
+        public media: MediaObserver
     ) {
         this._unsubscribeAll = new Subject();
     }

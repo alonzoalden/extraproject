@@ -6,8 +6,8 @@
         </button>
     </div>
     <div mat-dialog-content fxLayout="row" fxFlex style="position: relative; margin: 0 !important; padding: 0 !important">
-        <div fxFlex fxLayout="column">
-            <mat-tab-group fxFlex (selectedTabChange)="onSelectedTabChange()" [selectedIndex]="selectedTabIndex" #tabGroup class="accent">
+        <div fxFlex fxLayout="column" style="width: 0;">
+            <mat-tab-group style="overflow: auto; position: relative; height: 100%;" fxFlex (selectedTabChange)="onSelectedTabChange()" [selectedIndex]="selectedTabIndex" #tabGroup class="accent">
                 <mat-tab [disabled]="isLoading" label="Quantity">
                     <ng-template mat-tab-label>
                         <span style="margin-right: 7px;">Form 1</span>
@@ -220,6 +220,17 @@
                         </div>
                     </div>
                 </mat-tab>
+
+                <mat-tab *ngIf="media.isActive('lt-md')" [disabled]="isLoading" label="Messages" class="accent">
+                    <ng-template mat-tab-label>
+                        <span style="margin-right: 7px;">Messages</span>
+                        <span style="font-weight: 400;">(4)</span>
+                    </ng-template>
+                    <div style="height: 100%; position: relative;">
+                        <chat-panel-shipments style="height: 100%; position: relative; background-color: #fff !important; color: rgba(0, 0, 0, .78) !important"></chat-panel-shipments>
+                    </div>
+                </mat-tab>
+
             </mat-tab-group>
             
             
@@ -254,24 +265,9 @@
         </div>
 
 
-        <!-- CHAT PANEL  style="position: relative !important; max-height: 79vh;" -->
-        <div style="height: 100%; position: relative;">
-            
-            <!-- <fuse-sidebar name="chatPanel" position="right" class="chat-panel right-chat-panel"
-                
-                [folded]="true" [foldedWidth]="70" [foldedAutoTriggerOnHover]="false"
-                lockedOpen="gt-md">
-            </fuse-sidebar> -->
-            <!-- <chat-panel></chat-panel> -->
-
+        <div fxHide fxShow.gt-sm style="height: 100%; position: relative;">
             <chat-panel-shipments style="height: 100%; position: relative;"></chat-panel-shipments>
         </div>
-        <!-- / CHAT PANEL -->
-
-
 
     </div>
-
-
-    
 </div>

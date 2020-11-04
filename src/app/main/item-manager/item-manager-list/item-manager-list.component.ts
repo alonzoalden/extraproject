@@ -20,6 +20,7 @@ import { Member } from 'app/shared/class/member';
 import { AppService } from 'app/app.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ViewShipmentDialogComponent } from '../dialogs/view-shipment/view-shipment.component';
+import { MediaObserver } from '@angular/flex-layout';
 
 @Component({
     selector: 'item-manager-list',
@@ -39,7 +40,7 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
     imageURL = environment.imageURL;
     files: any;
     dataSource: any;
-    displayedColumns = ['ItemNumber', 'HTCCode', 'UpdatedOn', 'Steps', 'detail-button'];
+    displayedColumns = ['ItemNumber', 'HTCCode', 'UpdatedOn', 'Steps'];
     selected: ItemList;
     isLoading: boolean;
     isLeadRole: boolean;
@@ -60,12 +61,13 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
         private _fuseSidebarService: FuseSidebarService,
         private warehouseItemManagerService: WarehouseItemManagerService,
         public _matDialog: MatDialog,
-        private _snackBar: MatSnackBar
+        private _snackBar: MatSnackBar,
     ) {
         this._unsubscribeAll = new Subject();
         this.searchTerm = '';
         this.searchEnabled = false;
         this.inputEnabled = true;
+        
     }
 
     ngOnInit(): void {
