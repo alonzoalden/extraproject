@@ -10,8 +10,22 @@ item-manager-list {
         overflow: auto;
     }
     .mat-expansion-panel-header {
-        height: 80px !important;
+        min-height: 80px !important;
         padding-left: 48px !important;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: auto;
+    }
+    @include media-breakpoint('lt-md') {
+        max-width: none !important;
+        width: 100% !important;
+        .mat-expansion-panel-header {
+            padding-left: 24px !important;
+        }
+        .example-headers-align .mat-expansion-panel-header-title {
+            font-size: 18px !important;
+            flex: 4;
+        }
     }
     .example-headers-align .mat-expansion-panel-header-title,
     .example-headers-align .mat-expansion-panel-header-description {
@@ -27,6 +41,7 @@ item-manager-list {
     .example-headers-align .mat-expansion-panel-header-description {
         justify-content: space-between;
         align-items: center;
+        flex: 2;
     }
 
     .example-headers-align .mat-expansion-panel-body {

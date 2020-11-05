@@ -1,4 +1,4 @@
-<div class="main-list-layout list-container">
+<div class="main-list-layout list-container" style="width: 0;">
 
     <div class="sub-header accent" fxLayout="column" fxLayoutAlign="center start">
         <div class="breadcrumb text-truncate h1 p24"
@@ -271,13 +271,24 @@
                     </ng-container>
                     <!-- Steps Column -->
                     <ng-container matColumnDef="Steps">
-                        <mat-header-cell *matHeaderCellDef  fxLayoutAlign="center center"
-                            style="padding-right: 7px;">Steps</mat-header-cell>
-                        <mat-cell *matCellDef="let row" >
+                        <mat-header-cell *matHeaderCellDef fxLayoutAlign="center center" fxHide.lt-md style="padding-right: 7px;">Steps</mat-header-cell>
+                        <mat-cell *matCellDef="let row" fxHide.lt-md>
                             <steps-preview></steps-preview>
                         </mat-cell>
                     </ng-container>
                     
+                     <!-- ItemMobile Column -->
+                     <ng-container matColumnDef="ItemMobile">
+                        <mat-header-cell *matHeaderCellDef fxLayoutAlign="center center" style="padding-right: 7px;">Steps</mat-header-cell>
+                        <mat-cell *matCellDef="let row" fxLayout="row" style="padding-right: 0;">
+                            <div style="padding: 12px 6px 12px 0;" fxLayout="column" fxLayoutAlign="space-between start">
+                                <div fxFlex fxLayout="row"><div class="sm-header" style="min-width: 60px;">Number: </div><div>{{ row.ItemNumber }}</div></div>
+                                <div fxFlex fxLayout="row"><div class="sm-header" style="min-width: 60px;">HTCCode: </div><div>{{ row.HTCCode }}</div></div>
+                                <div fxFlex fxLayout="row"><div class="sm-header" style="min-width: 60px;">Updated: </div><div>{{ row.UpdatedOn }}</div></div>
+                            </div>
+                            <steps-preview fxFlex style="width: 100%;"></steps-preview>
+                        </mat-cell>
+                    </ng-container>
 
                     <!-- Actions Column -->
                     <ng-container matColumnDef="Actions">
@@ -314,7 +325,7 @@
                     <!-- Detail Button Column -->
                     <ng-container matColumnDef="detail-button">
 
-                        <mat-header-cell *matHeaderCellDef fxHide.gt-sm></mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef fxHide.lt-md></mat-header-cell>
                         <mat-cell *matCellDef="let row" fxHide.gt-sm>
                             <button mat-icon-button class="sidebar-toggle" (click)="toggleSidebar('file-manager-details-sidebar')">
                                 <mat-icon class="secondary-text">info</mat-icon>
@@ -322,10 +333,17 @@
                         </mat-cell>
                     </ng-container>
 
-                    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+                    <mat-header-row fxHide.lt-md *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+
                     <mat-row *matRowDef="let row; columns: displayedColumns;" (dblclick)="openShipment(row)" (click)="onSelect(row)"
                         [ngClass]="{'selected' : row == selected}" [@animate]="{value:'*',params:{y:'100%'}}" matRipple>
                     </mat-row>
+
+                    <mat-row *matRowDef="let row; columns: displayedColumnsMobile; when: isMobile"
+                        (dblclick)="openShipment(row)" (click)="onSelect(row)"
+                        [ngClass]="{'selected' : row == selected}" [@animate]="{value:'*',params:{y:'100%'}}" matRipple >
+                    </mat-row>
+
                 </mat-table>
                 <mat-paginator #paginator [pageSizeOptions]="[10, 20, 50, 100, 200]" [showFirstLastButtons]="true"></mat-paginator>
 

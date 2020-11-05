@@ -41,6 +41,7 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
     files: any;
     dataSource: any;
     displayedColumns = ['ItemNumber', 'HTCCode', 'UpdatedOn', 'Steps'];
+    displayedColumnsMobile = ['ItemMobile'];
     selected: ItemList;
     isLoading: boolean;
     isLeadRole: boolean;
@@ -56,12 +57,15 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
     // Private
     private _unsubscribeAll: Subject<any>;
 
+    
+
     constructor(
         public appService: AppService,
         private _fuseSidebarService: FuseSidebarService,
         private warehouseItemManagerService: WarehouseItemManagerService,
         public _matDialog: MatDialog,
         private _snackBar: MatSnackBar,
+        public media: MediaObserver
     ) {
         this._unsubscribeAll = new Subject();
         this.searchTerm = '';
@@ -69,7 +73,7 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
         this.inputEnabled = true;
         
     }
-
+    isMobile = (i: number, row: any) => this.media.isActive('lt-md');
     ngOnInit(): void {
 
         this.warehouseItemManagerService.onItemSelected.next({});
@@ -222,5 +226,8 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
     ev(ev: MouseEvent) {
         console.log(ev);
         ev.preventDefault();
+    }
+    test(test) {
+        console.log(test);
     }
 }
