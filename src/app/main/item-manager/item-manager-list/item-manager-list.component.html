@@ -299,10 +299,10 @@
                     <ng-container matColumnDef="ItemMobile">
                     <mat-header-cell *matHeaderCellDef fxLayoutAlign="center center" style="padding-right: 7px;">Steps</mat-header-cell>
                     <mat-cell *matCellDef="let row" fxLayout="row" style="padding-right: 0;">
-                        <div style="padding: 12px 6px 12px 0;" fxLayout="column" fxLayoutAlign="space-between start">
-                            <div fxFlex fxLayout="row"><div class="sm-header" style="min-width: 60px;">Number: </div><div>{{ row.ItemNumber }}</div></div>
-                            <div fxFlex fxLayout="row"><div class="sm-header" style="min-width: 60px;">HTCCode: </div><div>{{ row.HTCCode }}</div></div>
-                            <div fxFlex fxLayout="row"><div class="sm-header" style="min-width: 60px;">Updated: </div><div>{{ row.UpdatedOn }}</div></div>
+                        <div style="padding: 12px 12px 12px 0;" fxLayout="column" fxLayoutAlign="center start">
+                            <div fxLayout="row"><div class="sm-header" style="min-width: 60px;">Number: </div><div>{{ row.ItemNumber }}</div></div>
+                            <div fxLayout="row"><div class="sm-header" style="min-width: 60px;">HTCCode: </div><div>{{ row.HTCCode }}</div></div>
+                            <div fxLayout="row"><div class="sm-header" style="min-width: 60px;">Updated: </div><div>{{ row.UpdatedOn }}</div></div>
                         </div>
                         <steps-preview fxFlex style="width: 100%;"></steps-preview>
                     </mat-cell>
