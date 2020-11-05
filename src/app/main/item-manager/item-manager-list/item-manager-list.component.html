@@ -191,7 +191,7 @@
 
                 <mat-row *matRowDef="let row; columns: displayedColumnsMobile; when: isMobile"
                     (dblclick)="openShipment(row)" (click)="onSelect(row)"
-                    [ngClass]="{'selected' : row == selected}" [@animate]="{value:'*',params:{y:'100%'}}" matRipple >
+                    [ngClass]="{'selected' : selected && row == selected}" [@animate]="{value:'*',params:{y:'100%'}}" matRipple >
                 </mat-row>
 
             </mat-table>

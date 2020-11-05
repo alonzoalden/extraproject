@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { fuseAnimations } from '@fuse/animations';
@@ -54,10 +54,7 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
     @ViewChild('mainInput') mainInput: ElementRef;
-    // Private
     private _unsubscribeAll: Subject<any>;
-
-    
 
     constructor(
         public appService: AppService,
@@ -73,9 +70,19 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
         this.inputEnabled = true;
         
     }
-    isMobile = (i: number, row: any) => this.media.isActive('lt-md');
+    isMobile = () => this.media.isActive('lt-md');
     ngOnInit(): void {
-
+        this.media.asObservable()
+            .subscribe(item => {
+                this.appService.allItemList
+                    .pipe(takeUntil(this._unsubscribeAll))
+                    .subscribe(items => {
+                        if (items.length) {
+                            this.dataSource = new MatTableDataSource<ItemList>(items);
+                        }
+                    });
+            });
+            
         this.warehouseItemManagerService.onItemSelected.next({});
         this.warehouseItemManagerService.onItemSelected
             .pipe(takeUntil(this._unsubscribeAll))
