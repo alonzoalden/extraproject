@@ -26,14 +26,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { WarehouseItemManagerModule } from './main/item-manager/warehouse-item-manager.module';
 import { LandingPageModule } from './main/landing/landing.module';
 import { WarehouseDashboardComponent } from './main/warehouse-dashboard/warehouse-dashboard.component';
+import { SafePipe } from './shared/pipes/safe.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     // LandingPageComponent,
-    WarehouseDashboardComponent
-
+    WarehouseDashboardComponent,
+    
   ],
   imports: [
     AppRoutingModule,
@@ -81,6 +82,9 @@ import { WarehouseDashboardComponent } from './main/warehouse-dashboard/warehous
     
     LoginModule,
     WarehouseItemManagerModule,
+    
+  ],
+  exports: [
     
   ],
   bootstrap: [

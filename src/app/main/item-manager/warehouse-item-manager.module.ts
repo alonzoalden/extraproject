@@ -37,6 +37,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { ViewShipmentDialogComponent } from './dialogs/view-shipment/view-shipment.component';
 import { ChatPanelShipmentsComponent } from './dialogs/view-shipment/chat-panel/chat-panel.component';
 // import { ChatPanelShipmentModule } from 'app/main/chat-panel/chat-panel.module';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { SafePipe } from 'app/shared/pipes/safe.pipe';
 
 const routes: Routes = [
     {
@@ -88,6 +90,7 @@ const routes: Routes = [
         MatTabsModule,
         MatChipsModule,
         MatSnackBarModule,
+        MatDatepickerModule,
         MatRadioModule,
         FuseSharedModule,
         FuseSidebarModule,

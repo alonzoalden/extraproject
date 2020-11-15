@@ -40,7 +40,7 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
     imageURL = environment.imageURL;
     files: any;
     dataSource: any;
-    displayedColumns = ['ItemNumber', 'HTCCode', 'UpdatedOn', 'Steps'];
+    displayedColumns = ['ItemNumber', 'HTCCode', 'UpdatedOn', 'Actions'];
     displayedColumnsMobile = ['ItemMobile'];
     selected: ItemList;
     isLoading: boolean;
@@ -90,6 +90,7 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
                 // if (this.selected && this.selected.ItemID && !selected.ItemID) {
                 //     this.searchTerm = '';
                 // }
+                console.log(selected);
                 this.selected = selected;
             });
         this.isLoading = true;
@@ -128,13 +129,15 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
 
     onSelect(selected: any): void {
         // Use setTimeout to repeat animation
-        setTimeout(() => this.warehouseItemManagerService.onItemSelected.next(selected), 0);
+        //setTimeout(() => this.warehouseItemManagerService.onItemSelected.next(selected), 10);
+        this.warehouseItemManagerService.onItemSelected.next(selected);
         //this.warehouseItemManagerService.getItemDimension(selected.ItemID).subscribe();
         // .subscribe(item => this.selected.Dimensions.push(item));
 
         
     }
     openShipment(selected: any) {
+        this.selected = selected;
         this.dialogRef = this._matDialog.open(ViewShipmentDialogComponent, {
             data: { selected },
             width: '100%',

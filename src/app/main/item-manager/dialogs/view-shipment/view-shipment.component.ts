@@ -16,6 +16,7 @@ import { WarehouseItemManagerService } from '../../warehouse-item-manager.servic
 import { AnimationKeyframesSequenceMetadata } from '@angular/animations';
 import { FusePerfectScrollbarDirective } from '@fuse/directives/fuse-perfect-scrollbar/fuse-perfect-scrollbar.directive';
 import { MediaObserver } from '@angular/flex-layout';
+import { DomSanitizer } from '@angular/platform-browser';
 
 declare const dymo: any;
 
@@ -29,6 +30,15 @@ declare const dymo: any;
 export class ViewShipmentDialogComponent implements OnInit, AfterViewInit, OnDestroy {
     form: any;
     selected: any;
+    fileDetailManifest: any;
+    fileDetailManifest64: any;
+    fileDetailManifest64Original: any;
+    fileBLDocument: any;
+    fileBLDocument64: any;
+    fileBLDocument64Original: any;
+    filePackingList: any;
+    filePackingList64: any;
+    filePackingList64Original: any;
     selectedTabIndex: any;
     isLoading: boolean;
     composeForm: any;
@@ -64,7 +74,8 @@ export class ViewShipmentDialogComponent implements OnInit, AfterViewInit, OnDes
         @Inject(MAT_DIALOG_DATA) public _data: any,
         private notifyService: NotificationsService,
         public _matDialog: MatDialog,
-        public media: MediaObserver
+        public media: MediaObserver,
+        private dom: DomSanitizer
     ) {
         this._unsubscribeAll = new Subject();
     }
@@ -88,13 +99,13 @@ export class ViewShipmentDialogComponent implements OnInit, AfterViewInit, OnDes
     
     createProductForm(): FormGroup {
         return this._formBuilder.group({
-            Length: ['' ],
-            Width: ['' ],
-            Height: ['' ],
-            Weight: ['' ],
-            PackageType: ['' ],
-            ToolotsPallet: ['' ],
-            Pieces: ['' ],
+            HBL: ['' ],
+            MBL: ['' ],
+            Container: ['' ],
+            DateDepart: ['' ],
+            DateArrive: ['' ],
+            TXL: ['' ],
+            ISF: ['' ],
         });
     }
     onSelectedTabChange() {
@@ -118,5 +129,82 @@ export class ViewShipmentDialogComponent implements OnInit, AfterViewInit, OnDes
         else {
             this.selectedTabIndex = this.tabGroup.selectedIndex + 1;
         }
+    }
+    onFileSelected(event, type) {
+
+        this[type] = event.target.files[0];
+        if (!this[type]) {
+            return;
+        }
+        
+        // save the selectedFile 
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            this[type + '64'] = this.dom.bypassSecurityTrustResourceUrl(e.target.result.toString());
+            this[type + '64Original'] = e.target.result;
+            
+            //this.selectedFile64 = e.target.result;
+            //this.refreshPhotoDataSource(this.selectedFile64, this.selectedFile.name);
+            // const image = new Image();
+            // image.src = this[type + '64'];
+        };
+        reader.readAsDataURL(this[type]);
+        
+        // setTimeout(()=> {
+        //     const output: any = document.getElementById(this.selectedFile.name);
+        //     console.log(output);
+        //     output.src = URL.createObjectURL(event.target.files[0]);
+        // }, 100);
+        
+        //this.selectedFile = null;
+        this[type] = null;
+
+
+
+
+        // const formData: FormData = new FormData();
+        // formData.append('uploadedFiles', this.selectedFile, this.selectedFile.name);
+        // this.warehouseOutboundService.uploadMarkShipImage(formData)
+        //     .pipe(takeUntil(this._unsubscribeAll))
+        //     .subscribe(
+        //         (filepath)=> {
+        //             this.refreshPhotoDataSource(filepath);
+        //             this.isImageLoading = false;
+        //             // this.fileInput.nativeElement.value = '';
+        //             this.onSelectPhoto(this.dataSourcePhotos.data[0]);
+                    
+        //             // save the selectedFile 
+        //             const reader = new FileReader();
+        //             reader.onload = (e) => {
+        //                 this.selectedFile64 = e.target.result;
+        //                 const image = new Image();
+        //                 image.src = this.selectedFile64;
+        //                 image.onload = () => {
+        //                     this.selectedFile64Width = image.width;
+        //                     this.selectedFile64Height = image.height;
+        //                 };
+        //             };
+        //             const file = this.selectedFile;
+        //             reader.readAsDataURL(file);
+        //             this.selectedFile = null;
+        //         },
+        //         (err) => {
+        //             this.notifyService.error('Error', `${err}`, { clickToClose: true });
+        //             this.isImageLoading = false;
+        //             this.selectedFile = null;
+        //             // this.fileInput.nativeElement.value = '';
+        //         }
+        //     );
+    }
+    onRemovePdf(type) {
+        const confirmation = confirm(`Are you sure you want to remove this file?`);
+        if (!confirmation) {
+            return;
+        }
+        this[type] = null;
+    }
+    viewPDF(type) {
+        var win = window.open();
+        win.document.write('<iframe src="data:application/pdf;' + this[type] + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>')
     }
 }
