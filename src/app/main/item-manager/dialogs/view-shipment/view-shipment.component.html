@@ -125,16 +125,25 @@
                                         <div fxLayout="row" fxLayoutAlign="start start" style="flex: 1; width: 100%; margin-right: 72px; position: relative;" [ngStyle.lt-lg]="{'margin-bottom': '20px;'}">
                                             <div style="width: 140px; padding: 0 24px 24px 0; font-size: 16px; font-weight: 600;">
                                                 <div>Detail Manifest</div>
-                                                <button *ngIf="!fileDetailManifest64" (click)="fileInput1.click()"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="primary">
-                                                    <div fxLayoutAlign="center">
-                                                        <span *ngIf="!fileDetailManifest64">Upload PDF</span>
-                                                    </div>
-                                                </button>
-                                                <button *ngIf="fileDetailManifest64" (click)="viewPDF('fileDetailManifest64Original')"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="accent" [@animate]="{value:'*',params:{delay:'250ms',scale:'0.2'}}">
-                                                    <div fxLayoutAlign="center">
-                                                        <span>View PDF</span>
-                                                    </div>
-                                                </button>
+                                                <div fxHide.lt-lg>
+                                                    <button *ngIf="!fileDetailManifest64" (click)="fileInput1.click()"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="primary">
+                                                        <div fxLayoutAlign="center">
+                                                            <span>Upload PDF</span>
+                                                        </div>
+                                                    </button>
+                                                    <button *ngIf="fileDetailManifest64" (click)="viewPDF('fileDetailManifest64Original')"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="accent" [@animate]="{value:'*',params:{delay:'250ms',scale:'0.2'}}">
+                                                        <div fxLayoutAlign="center">
+                                                            <span>View PDF</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div fxHide.gt-md>
+                                                    <button (click)="fileInput1.click()"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="primary">
+                                                        <div fxLayoutAlign="center">
+                                                            <span >Upload PDF</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
                                                 <input type="file" id="fileInput1" style="display: none;"
                                                     accept="image/*" id="cameraInput" name="cameraInput" 
                                                     (change)="onFileSelected($event, 'fileDetailManifest');" (click)="fileInput1.value = null"
