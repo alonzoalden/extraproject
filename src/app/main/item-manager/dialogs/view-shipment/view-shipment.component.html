@@ -150,75 +150,97 @@
                                                     accept=".pdf" 
                                                     #fileInput1>
                                             </div>
-                                            <div fxFlex *ngIf="!fileDetailManifest64" fxLayoutAlign="center center" style="padding: 4px; height: 120px; max-height: 120px; width: 120px; max-width: 120px; background-color: #ddd">
-                                                <mat-icon style="color: #fff; width: 32px; height: 32px; font-size: 32px;">help</mat-icon>
-                                            </div>
-                                            <div fxFlex *ngIf="fileDetailManifest64" fxLayoutAlign="center center" style="position: relative; padding: 4px; height: 120px; max-height: 120px; width: 120px; max-width: 120px; overflow: auto;">
-                                                <embed [src]="fileDetailManifest64" type="application/pdf">
-                                            </div>
-                                            <div *ngIf="fileDetailManifest64" class="remove" style="z-index: 9999999 !important; position: absolute; top: -4px; right: -4px; background: none;">
-                                                <button matTooltip="Remove File" (click)="onRemovePdf('fileDetailManifest64')" class="mat-elevation-z2" mat-icon-button style="background-color: #fff;">
-                                                    <mat-icon>close</mat-icon>
-                                                </button>
+                                            <div #containerWidth style="width: 100%;">
+                                                <div fxFlex *ngIf="!fileDetailManifest64" fxLayoutAlign="center center" style="padding: 4px; height: 170px; max-height: 170px; width: 170px; max-width: 170px; background-color: #ddd">
+                                                    <mat-icon style="color: #fff; width: 32px; height: 32px; font-size: 32px;">help</mat-icon>
+                                                </div>
+                                                <div fxFlex *ngIf="fileDetailManifest64" fxLayoutAlign="center center" style="position: relative; padding: 4px; height: 170px; max-height: 170px; width: 170px; max-width: 170px; overflow: auto;">
+                                                    <embed width="{{containerWidth.offsetWidth}}" [src]="fileDetailManifest64" type="application/pdf">
+                                                </div>
+                                                <div *ngIf="fileDetailManifest64" class="remove" style="z-index: 9999999 !important; position: absolute; top: -4px; right: -4px; background: none;">
+                                                    <button matTooltip="Remove File" (click)="onRemovePdf('fileDetailManifest64')" class="mat-elevation-z2" mat-icon-button style="background-color: #fff;">
+                                                        <mat-icon>close</mat-icon>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                         <div fxLayout="row" fxLayoutAlign="start start" style="flex: 1; width: 100%; position: relative">
                                             <div style="width: 140px; padding: 0 24px 24px 0; font-size: 16px; font-weight: 600;">
                                                 <div>BL Document</div>
-                                                <button *ngIf="!fileBLDocument64" (click)="fileInput2.click()"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="primary">
-                                                    <div fxLayoutAlign="center">
-                                                        <span *ngIf="!isLoading">Upload PDF</span>
-                                                    </div>
-                                                </button>
-                                                <button *ngIf="fileBLDocument64" (click)="viewPDF('fileBLDocument64Original')"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="accent" [@animate]="{value:'*',params:{delay:'250ms',scale:'0.2'}}">
-                                                    <div fxLayoutAlign="center">
-                                                        <span>View PDF</span>
-                                                    </div>
-                                                </button>
+                                                <div fxHide.lt-lg>
+                                                    <button *ngIf="!fileBLDocument64" (click)="fileInput2.click()"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="primary">
+                                                        <div fxLayoutAlign="center">
+                                                            <span *ngIf="!isLoading">Upload PDF</span>
+                                                        </div>
+                                                    </button>
+                                                    <button *ngIf="fileBLDocument64" (click)="viewPDF('fileBLDocument64Original')"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="accent" [@animate]="{value:'*',params:{delay:'250ms',scale:'0.2'}}">
+                                                        <div fxLayoutAlign="center">
+                                                            <span>View PDF</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div fxHide.gt-md>
+                                                    <button (click)="fileInput2.click()"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="primary">
+                                                        <div fxLayoutAlign="center">
+                                                            <span *ngIf="!isLoading">Upload PDF</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
                                                 <input type="file" id="fileInput2" style="display: none;"
                                                     accept="image/*" id="cameraInput" name="cameraInput" 
                                                     (change)="onFileSelected($event,'fileBLDocument')" (click)="fileInput2.value = null"
                                                     accept=".pdf" 
                                                     #fileInput2>
                                             </div>
-                                            <div fxFlex *ngIf="!fileBLDocument64" fxLayoutAlign="center center" style="padding: 4px; height: 120px; max-height: 120px; width: 120px; max-width: 120px; background-color: #ddd">
-                                                <mat-icon style="color: #fff; width: 32px; height: 32px; font-size: 32px;">help</mat-icon>
-                                            </div>
-                                            <div fxFlex *ngIf="fileBLDocument64" fxLayoutAlign="center center" style="padding: 4px; height: 120px; max-height: 120px; width: 120px; max-width: 120px; overflow: auto;">
-                                                <embed [src]="fileBLDocument64" type="application/pdf">
-                                            </div>
-                                            <div *ngIf="fileBLDocument64" class="remove" style="z-index: 9999999 !important; position: absolute; top: -4px; right: -4px; background: none;">
-                                                <button matTooltip="Remove File" (click)="onRemovePdf('fileBLDocument64')" class="mat-elevation-z2" mat-icon-button style="background-color: #fff;">
-                                                    <mat-icon>close</mat-icon>
-                                                </button>
+                                            <div style="width: 100%;">
+                                                <div fxFlex *ngIf="!fileBLDocument64" fxLayoutAlign="center center" style="padding: 4px; height: 170px; max-height: 170px; width: 170px; max-width: 170px; background-color: #ddd">
+                                                    <mat-icon style="color: #fff; width: 32px; height: 32px; font-size: 32px;">help</mat-icon>
+                                                </div>
+                                                <div fxFlex *ngIf="fileBLDocument64" fxLayoutAlign="center center" style="padding: 4px; height: 170px; max-height: 170px; width: 170px; max-width: 170px; overflow: auto;">
+                                                    <embed width="{{containerWidth.offsetWidth}}"  [src]="fileBLDocument64" type="application/pdf">
+                                                </div>
+                                                <div *ngIf="fileBLDocument64" class="remove" style="z-index: 9999999 !important; position: absolute; top: -4px; right: -4px; background: none;">
+                                                    <button matTooltip="Remove File" (click)="onRemovePdf('fileBLDocument64')" class="mat-elevation-z2" mat-icon-button style="background-color: #fff;">
+                                                        <mat-icon>close</mat-icon>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start start">
+                                    <div fxLayout="row" fxLayout.lt-lg="column" fxLayoutAlign="start start">
                                         <div fxLayout="row" fxLayoutAlign="start start" style="flex: 1; width: 100%; margin-right: 72px; position: relative" >
-                                            <div style="width: 140px; padding: 0 24px 24px 0; font-size: 16px; font-weight: 600;">
+                                            <div style="width: 126px; padding: 0 24px 24px 0; font-size: 16px; font-weight: 600;">
                                                 <div>Commercial Invoice / Packing List</div>
-                                                <button *ngIf="!filePackingList64" (click)="fileInput3.click()"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="primary">
-                                                    <div fxLayoutAlign="center">
-                                                        <span *ngIf="!isLoading">Upload PDF</span>
-                                                    </div>
-                                                </button>
-                                                <button *ngIf="filePackingList64" (click)="viewPDF('filePackingList64Original')"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="accent" [@animate]="{value:'*',params:{delay:'250ms',scale:'0.2'}}">
-                                                    <div fxLayoutAlign="center">
-                                                        <span>View PDF</span>
-                                                    </div>
-                                                </button>
+                                                <div fxHide.lt-lg>
+                                                    <button *ngIf="!filePackingList64" (click)="fileInput3.click()"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="primary">
+                                                        <div fxLayoutAlign="center">
+                                                            <span *ngIf="!isLoading">Upload PDF</span>
+                                                        </div>
+                                                    </button>
+                                                    <button *ngIf="filePackingList64" (click)="viewPDF('filePackingList64Original')"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="accent" [@animate]="{value:'*',params:{delay:'250ms',scale:'0.2'}}">
+                                                        <div fxLayoutAlign="center">
+                                                            <span>View PDF</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
+                                                <div fxHide.gt-md>
+                                                    <button (click)="fileInput3.click()"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="primary">
+                                                        <div fxLayoutAlign="center">
+                                                            <span *ngIf="!isLoading">Upload PDF</span>
+                                                        </div>
+                                                    </button>
+                                                </div>
                                                 <input type="file" id="fileInput3" style="display: none;"
                                                     accept="image/*" id="cameraInput" name="cameraInput" 
                                                     (change)="onFileSelected($event,'filePackingList')" (click)="fileInput3.value = null"
                                                     accept=".pdf" 
                                                     #fileInput3>
                                             </div>
-                                            <div fxFlex *ngIf="!filePackingList64" fxLayoutAlign="center center" style="padding: 4px; height: 120px; max-height: 120px; width: 120px; max-width: 120px; background-color: #ddd">
+                                            <div fxFlex *ngIf="!filePackingList64" fxLayoutAlign="center center" style="padding: 4px; height: 170px; max-height: 170px; width: 170px; max-width: 170px; background-color: #ddd">
                                                 <mat-icon style="color: #fff; width: 32px; height: 32px; font-size: 32px;">help</mat-icon>
                                             </div>
-                                            <div fxFlex *ngIf="filePackingList64" fxLayoutAlign="center center" style="padding: 4px; height: 120px; max-height: 120px; width: 120px; max-width: 120px; overflow: auto;">
-                                                <embed [src]="filePackingList64" type="application/pdf">
+                                            <div fxFlex *ngIf="filePackingList64" fxLayoutAlign="center center" style="padding: 4px; height: 170px; max-height: 170px; width: 170px; max-width: 170px; overflow: auto;">
+                                                <embed width="{{containerWidth.offsetWidth}}" [src]="filePackingList64" type="application/pdf">
                                             </div>
                                             <div *ngIf="filePackingList64" class="remove" style="z-index: 9999999 !important; position: absolute; top: -4px; right: -4px; background: none;">
                                                 <button matTooltip="Remove File" (click)="onRemovePdf('filePackingList64')" class="mat-elevation-z2" mat-icon-button style="background-color: #fff;">
