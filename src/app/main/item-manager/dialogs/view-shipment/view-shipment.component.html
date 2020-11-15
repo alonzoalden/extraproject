@@ -33,7 +33,7 @@
                                 overflow: auto !important;">
                             <div *ngIf="composeForm">
                                 <form name="composeForm" [formGroup]="composeForm" class="compose-form" fxLayout="column" fxFlex>
-                                    <div fxLayout="row">
+                                    <div fxLayout="row" fxLayout.lt-md="column" >
                                         <mat-form-field appearance="outline" floatLabel="always" class="w-100-p"
                                             style="margin-right: 12px;">
                                             <mat-label>HBL</mat-label>
@@ -46,7 +46,7 @@
                                                 min="0" required>
                                         </mat-form-field>
                                     </div>
-                                    <div fxLayout="row">
+                                    <div fxLayout="row" fxLayout.lt-md="column" >
                                         <mat-form-field appearance="outline" floatLabel="always" class="w-100-p"
                                             style="margin-right: 12px;">
                                             <mat-label>Container</mat-label>
@@ -60,7 +60,7 @@
                                             <mat-datepicker #ETD></mat-datepicker>
                                         </mat-form-field>
                                     </div>
-                                    <div fxLayout="row">
+                                    <div fxLayout="row" fxLayout.lt-md="column" >
                                         <mat-form-field appearance="outline" floatLabel="always" class="w-100-p"
                                             style="margin-right: 12px;">
                                             <mat-label>ETA</mat-label>
@@ -75,21 +75,7 @@
                                             <mat-datepicker #TXL></mat-datepicker>
                                         </mat-form-field>
                                     </div>
-                                    <!-- <div fxLayout="row">
-                                        <mat-form-field appearance="outline" floatLabel="always" style="margin-right: 12px;">
-                                            <mat-label>Package Type</mat-label>
-                                            <mat-select (selectionChange)="handleCreateChange()" required placeholder="Package Type" name="PackageType" formControlName="PackageType">
-                                                <mat-option *ngFor="let item of packageTypes" value="{{item}}">{{ item }}</mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-                                        <mat-form-field appearance="outline" floatLabel="always">
-                                            <mat-label>Toolots Pallet</mat-label>
-                                            <mat-select placeholder="Toolots Pallet" name="ToolotsPallet" formControlName="ToolotsPallet" required>
-                                                <mat-option value="None">{{ 'None' }}</mat-option>
-                                                <mat-option *ngFor="let item of palletTypes" [value]="item">{{ item.PalletName }}</mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-                                    </div> -->
+                                    
                                     <div fxLayout="row">
                                         <mat-form-field fxFlex.gt-sm="50%" appearance="outline" floatLabel="always" class="w-100-p">
                                             <mat-label>ISF FILED</mat-label>
@@ -136,7 +122,7 @@
                                 <form name="composeForm" [formGroup]="composeForm" class="compose-form" fxLayout="column" fxFlex>
                                    
                                     <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start start" style="margin-bottom: 20px;">
-                                        <div fxFlex fxLayout="row" fxLayoutAlign="start start" style="margin-right: 72px; position: relative;" [ngStyle.lt-md]="{'margin-bottom': '20px;'}">
+                                        <div fxLayout="row" fxLayoutAlign="start start" style="flex: 1; margin-right: 72px; position: relative;" [ngStyle.lt-md]="{'margin-bottom': '20px;'}">
                                             <div style="width: 140px; padding: 0 24px 24px 0; font-size: 16px; font-weight: 600;">
                                                 <div>Detail Manifest</div>
                                                 <button *ngIf="!fileDetailManifest64" (click)="fileInput1.click()"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="primary">
@@ -167,7 +153,7 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div fxFlex fxLayout="row" fxLayoutAlign="start start" style="position: relative">
+                                        <div fxLayout="row" fxLayoutAlign="start start" style="flex: 1; position: relative">
                                             <div style="width: 140px; padding: 0 24px 24px 0; font-size: 16px; font-weight: 600;">
                                                 <div>BL Document</div>
                                                 <button *ngIf="!fileBLDocument64" (click)="fileInput2.click()"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="primary">
@@ -200,7 +186,7 @@
                                         </div>
                                     </div>
                                     <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="start start">
-                                        <div fxFlex fxLayout="row" fxLayoutAlign="start start" style="margin-right: 72px; position: relative" >
+                                        <div fxLayout="row" fxLayoutAlign="start start" style="flex: 1; margin-right: 72px; position: relative" >
                                             <div style="width: 140px; padding: 0 24px 24px 0; font-size: 16px; font-weight: 600;">
                                                 <div>Commercial Invoice / Packing List</div>
                                                 <button *ngIf="!filePackingList64" (click)="fileInput3.click()"  style="margin-top: 5px; width: 100px; height: 40px;" mat-raised-button color="primary">
