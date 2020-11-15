@@ -225,6 +225,9 @@ item-manager-list {
         padding-right: 7px;
         font-size: 22px !important;
         letter-spacing: 0.5px;
+        @include media-breakpoint('lt-md') {
+            font-size: 16px !important;
+        }
     }
 }
 .item-list .mat-column-Steps {
@@ -233,7 +236,11 @@ item-manager-list {
 }
 .item-list .mat-column-ItemNumber {
     padding-left: 52px !important;
+    @include media-breakpoint('lt-md') {
+        padding-left: 24px !important;
+    }
 }
+
 
 .item-list .mat-column-Actions {
     flex: 0 0 14% !important;

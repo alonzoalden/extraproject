@@ -1,6 +1,12 @@
 @import "src/@fuse/scss/fuse";
 
 :host {
+    .body-container {
+        padding: 24px 52px !important;
+        @include media-breakpoint('lt-md') {
+            padding: 24px !important;
+        }
+    }
     .remove .mat-icon-button {
         width: 30px;
         height: 30px;
