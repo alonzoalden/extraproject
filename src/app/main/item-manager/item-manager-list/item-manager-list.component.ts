@@ -90,7 +90,6 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
                 // if (this.selected && this.selected.ItemID && !selected.ItemID) {
                 //     this.searchTerm = '';
                 // }
-                console.log(selected);
                 this.selected = selected;
             });
         this.isLoading = true;
