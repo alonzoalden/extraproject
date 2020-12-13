@@ -37,24 +37,24 @@ export const navigation: FuseNavigation[] = [
                     //     url       : '/e-commerce/products/1/printed-dress',
                     //     // exactMatch: true
                     // },
-                    {
-                        id        : 'orders',
-                        title     : 'Link 2',
-                        type      : 'item',
-                        url       : '/shipments1',
-                    },
-                    {
-                        id        : 'orders',
-                        title     : 'Link 3',
-                        type      : 'item',
-                        url       : '/shipments2',
-                    },
-                    {
-                        id        : 'orderDetail',
-                        title     : 'Link 4',
-                        type      : 'item',
-                        url       : '/shipments3',
-                    }
+                    // {
+                    //     id        : 'orders',
+                    //     title     : 'Link 2',
+                    //     type      : 'item',
+                    //     url       : '/shipments1',
+                    // },
+                    // {
+                    //     id        : 'orders',
+                    //     title     : 'Link 3',
+                    //     type      : 'item',
+                    //     url       : '/shipments2',
+                    // },
+                    // {
+                    //     id        : 'orderDetail',
+                    //     title     : 'Link 4',
+                    //     type      : 'item',
+                    //     url       : '/shipments3',
+                    // }
                 ]
             },
             // {

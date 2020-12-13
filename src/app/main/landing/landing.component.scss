@@ -1,7 +1,7 @@
 @import "src/@fuse/scss/fuse";
 
 app-landing-page {
-    $toolots-orange: #ffa928;
+    $toolots-orange: teal;
     .text-orange {
         color: #ffa928;
     }
@@ -11,16 +11,58 @@ app-landing-page {
     }
     /*This section datalist the main image display on default home page*/
     .main-display-container .background-img {
-        background: url("https://content-merchantportal.toolots.net/assets/images/header_one.jpg");
+        background: url("../../../assets/images/truck4.png");
         background-size: cover;
-        height: 500px;
+        height: 380px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
-    }
+        opacity: 0.77;
+        background-position: bottom -106px right 0;
+        //background-image: linear-gradient(to right, rgba(0, 46, 54, 0.5) 66%, rgba(0, 46, 54, 0.5) 66%);
 
+
+    }
+    .toolbar {
+        z-index: 999 !important;
+        height: 73px;
+        //background-color: rgba(255, 255, 255, 0.9);
+        background-color: #252829;
+        border-bottom: 1px solid #666;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 2px 3px 8px black;
+        .toolbar-body {
+            width: 100%;
+            max-width: 1100px;
+            font-size: 18px;
+            margin-left: 12px;
+            font-weight: 700;
+            color: #fff;
+            .logo {
+                width: 68px; margin-right: 12px;
+            }
+        }
+        .buttons {
+            display: flex;
+        }
+        .button-link {
+            margin-left: 50px;
+            a {
+                color: #fff;
+            }
+        }
+        
+        .button-link :hover {
+            cursor: pointer;
+            text-decoration: none !important;
+            transform: scale(1.1);
+            transition: all .2s ease-in-out; 
+        }
+    }
     .main-display-toolbar .but {
         width: 200px;
         text-align: center;
@@ -319,6 +361,28 @@ app-landing-page {
             line-height: 27px;
         }
     }
+    .sign-up-button-section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 20px;
+        font-weight: 600;
+        a {
+            text-shadow: 2px 3px 8px black;
+            color: #fff;
+            margin-left: 14px;
+        }
+        button {
+            font-weight: 600;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        a:hover {
+            cursor: pointer;
+        }
+    }
 
     .btn-home-signup1 {
         text-align: center;
@@ -326,17 +390,17 @@ app-landing-page {
         width: 300px; height: 50px;
         background-color: #676a6c;
         color: #fff;
-        font-size: 16px;
+        font-size: 18px;
+        font-weight: 700;
         border-radius: 25px;
     }
-
+    
     .btn-home-signup {
         text-align: center;
         vertical-align: middle;
         width: 300px; height: 50px;
-        background-color: #ffa928;
+        background-color: teal;
         border: #fff;
-        text-transform: uppercase;
         color: #fff;
         border-radius: 25px;
         border: 2px solid #FFF;
@@ -356,7 +420,6 @@ app-landing-page {
         background: url("https://content-merchantportal.toolots.net/assets/images/word_map.png");
         background-position: 50% 50%;
         background-repeat: no-repeat;
-        margin-top: 60px;
     }
     .contact p {
         color: #777777
@@ -378,23 +441,161 @@ app-landing-page {
     }
 
     .features {
-            padding-bottom: 90px;
+        padding-bottom: 90px;
+    }
+    .services {
+        padding: 0 24px;
+        margin: 64px 0;
+        display: flex;
+        flex-wrap: wrap;
+        > div {
+            flex: 1;
+        }
+        .mat-icon {
+            width: 120px;
+            height: 120px;
+            font-size: 120px;
+            color: #039be5;
+        }
+        .feature-section {
+            text-align: center;
+            padding: 0 12px;
+        }
+        .title {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .message {
+            font-size: 18px;
+        }
     }
     .main-title {
         font-weight: 700;
-        font-size: 38px;
+        font-size: 92px;
+        line-height: 84px;
         text-transform: uppercase;
-        text-shadow: none;
+        text-shadow: 4px 4px 7px #252829;
     }
+    .gray-section {
+        width: 100%;
+        background-color: #e6e6e6;
+    }
+    .ready {
+        button {
+            margin-bottom: 20px;
+        }
+        .message {
+            font-size: 18px;
+        }
+    }
+    .faq {
+        padding: 62px;
+        max-width: 1100px;
+        .title {
+            font-size: 34px;
+            font-weight: 600;
+            margin: 24px 0;
+        }
+    }
+    .mat-expansion-panel-header {
+        padding: 12px;
+        height: 62px !important;
+    }
+    .mat-expansion-panel-header-title {
+        font-size: 26px;
+        font-weight: 600;   
+    }
+    .mat-expansion-panel-body {
+        font-size: 18px;
+    }
+    @media (max-width: 526px) {
+        .btn-home-signup {
+            margin-bottom: 16px;
+        }
+        .sign-up-button-section a {
+            margin-left: 0;
+        }
+    }
+    @media (max-width: 720px) {
+        .mat-expansion-panel-header-title {
+            font-size: 20px;
+        }
+        .main-title {
+            font-size: 60px;
+            line-height: 52px;
+        }
+    }
+    @media (max-width: 1100px) {
+        .main-display-container .background-img {
+            background-position: 0;
+        }
+    }
+
     .main-display-content {
-        text-align: center;
-        max-width: 550px;
-        padding: 40px 10px;
-        padding-top: 40px;
+        text-align: start;
+        max-width: 1100px;
         color: #fff; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 50px 24px;
+        h1 {
+            margin: 0 !important;
+        }
     }
-    .features-start-point {
-        margin-top: -50px;
+    // .features-start-point {
+    //     margin-top: -50px;
+    // }
+    .section {
+        max-width: 1100px;
+    }
+    .after-header-message {
+        font-size: 26px;
+        font-weight: 600;
+        padding: 22px 24px;
+        width: 100%;
+    }
+    .instant-quotes-container {
+        width: 100%;
+        padding: 0 24px;
+        .inner-container {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 2px 2px 8px #ddd;
+            padding: 24px;
+            > mat-form-field,
+            > div {
+                margin: 16px 0;
+            }
+        }
+        .header {
+            font-size: 48px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            .mat-icon {
+                color: #039be5;
+                font-size: 44px;
+                margin-right: 6px;
+                width: 46px;
+                height: 46px;
+            }
+        }
+        .message {
+            font-size: 20px;
+        }
+        .input-container {
+            display: flex;
+            flex-wrap: wrap;
+            mat-form-field {
+                margin-right: 18px;
+            }
+            .quotes-submit {
+                margin-bottom: 27px;
+                margin-top: 5px;
+            }
+        }
     }
     .mid-page-signup {
         margin-top: 0;
@@ -455,214 +656,22 @@ app-landing-page {
     .text-black {
         color: #333;
     }
-    .bg-signup2 {
-        background: linear-gradient(to bottom, rgba(244,244,244,0.9) 0%,rgba(244,244,244,0.9) 100%), url(https://content-merchantportal.toolots.net/assets/images/gears2.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        width: 100%;
-    }
-
-
-    @media (max-width:1440px){
-        .bg-signup2 {
-            background: linear-gradient(to bottom, rgba(244,244,244,0.9) 0%,rgba(244,244,244,0.9) 100%), url(https://content-merchantportal.toolots.net/assets/images/gears2.jpg) 65%;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            width: 100%;
-        }
-    }
-    // #login {
-    //     width: 100%;
-    //     overflow: hidden;
-    //     background: url('/assets/images/backgrounds/dark-material-bg.jpg') no-repeat;
+    // .bg-signup2 {
+    //     background: linear-gradient(to bottom, rgba(244,244,244,0.9) 0%,rgba(244,244,244,0.9) 100%), url(https://content-merchantportal.toolots.net/assets/images/gears2.jpg);
     //     background-size: cover;
+    //     background-repeat: no-repeat;
+    //     background-attachment: fixed;
+    //     width: 100%;
+    // }
 
-    //     #login-intro {
-    //         padding: 128px;
 
-    //         @include media-breakpoint('sm') {
-    //             padding: 128px 64px;
-    //         }
-
-    //         .logo {
-    //             width: 128px;
-    //             margin-bottom: 32px;
-    //         }
-
-    //         .title {
-    //             font-size: 42px;
-    //             font-weight: 300;
-    //             line-height: 1;
-    //         }
-
-    //         .description {
-    //             padding-top: 16px;
-    //             font-size: 14px;
-    //             max-width: 600px;
-    //         }
-    //     }
-
-    //     #login-form-wrapper {
-    //         width: 400px;
-    //         min-width: 400px;
-    //         max-width: 400px;
-    //         overflow: auto;
-    //         -webkit-overflow-scrolling: touch;
-
-    //         @include mat-elevation(16);
-
-    //         @include media-breakpoint('sm') {
-    //             width: 360px;
-    //             min-width: 360px;
-    //             max-width: 360px;
-    //         }
-
-    //         @include media-breakpoint('xs') {
-    //             width: 100%;
-    //             min-width: 100%;
-    //             max-width: 100%;
-    //         }
-
-    //         #login-form {
-    //             padding: 128px 48px 48px 48px;
-
-    //             @include media-breakpoint('xs') {
-    //                 text-align: center;
-    //                 padding: 24px;
-    //             }
-
-    //             .logo {
-    //                 width: 128px;
-    //                 margin: 32px auto;
-    //             }
-
-    //             .title {
-    //                 font-size: 21px;
-    //             }
-
-    //             .description {
-    //                 padding-top: 8px;
-    //             }
-
-    //             form {
-    //                 width: 100%;
-    //                 padding-top: 32px;
-
-    //                 mat-form-field {
-    //                     width: 100%;
-
-    //                     @include media-breakpoint('xs') {
-    //                         width: 80%;
-    //                     }
-    //                 }
-
-    //                 mat-checkbox {
-    //                     margin: 0;
-    //                 }
-
-    //                 .remember-forgot-password {
-    //                     font-size: 13px;
-    //                     margin-top: 8px;
-
-    //                     .remember-me {
-    //                         margin-bottom: 16px
-    //                     }
-
-    //                     .forgot-password {
-    //                         font-size: 13px;
-    //                         font-weight: 600;
-    //                         margin-bottom: 16px
-    //                     }
-    //                 }
-
-    //                 .submit-button {
-    //                     width: 100%;
-    //                     margin: 16px auto;
-    //                     display: block;
-
-    //                     @include media-breakpoint('xs') {
-    //                         width: 80%;
-    //                     }
-    //                 }
-    //             }
-
-    //             .separator {
-    //                 font-size: 15px;
-    //                 font-weight: 600;
-    //                 margin: 24px auto;
-    //                 position: relative;
-    //                 overflow: hidden;
-    //                 width: 100px;
-    //                 text-align: center;
-
-    //                 .text {
-    //                     display: inline-flex;
-    //                     position: relative;
-    //                     padding: 0 8px;
-    //                     z-index: 9999;
-
-    //                     &:before,
-    //                     &:after {
-    //                         content: '';
-    //                         display: block;
-    //                         width: 30px;
-    //                         position: absolute;
-    //                         top: 10px;
-    //                         border-top: 1px solid;
-    //                     }
-
-    //                     &:before {
-    //                         right: 100%;
-    //                     }
-
-    //                     &:after {
-    //                         left: 100%;
-    //                     }
-    //                 }
-    //             }
-
-    //             button {
-
-    //                 &.google,
-    //                 &.facebook {
-    //                     width: 70%;
-    //                     text-transform: none;
-    //                     color: #FFFFFF;
-    //                     font-size: 13px;
-
-    //                     @include media-breakpoint('xs') {
-    //                         width: 60%;
-    //                     }
-
-    //                     mat-icon {
-    //                         color: #FFFFFF;
-    //                         margin: 0 8px 0 0;
-    //                     }
-    //                 }
-
-    //                 &.google {
-    //                     background-color: #D73D32;
-    //                     margin-bottom: 8px;
-    //                 }
-
-    //                 &.facebook {
-    //                     background-color: rgb(63, 92, 154);
-    //                 }
-    //             }
-
-    //             .register {
-    //                 margin: 32px auto 24px auto;
-    //                 width: 250px;
-    //                 font-weight: 600;
-
-    //                 .text {
-    //                     margin-right: 8px;
-    //                 }
-
-    //             }
-    //         }
+    // @media (max-width:1440px){
+    //     .bg-signup2 {
+    //         background: linear-gradient(to bottom, rgba(244,244,244,0.9) 0%,rgba(244,244,244,0.9) 100%), url(https://content-merchantportal.toolots.net/assets/images/gears2.jpg) 65%;
+    //         background-size: cover;
+    //         background-repeat: no-repeat;
+    //         background-attachment: fixed;
+    //         width: 100%;
     //     }
     // }
 }

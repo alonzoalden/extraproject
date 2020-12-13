@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, OnDestroy } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { FuseConfigService } from '@fuse/services/config.service';
 import { fuseAnimations } from '@fuse/animations';
 import { FuseSplashScreenService } from '@fuse/services/splash-screen.service';
@@ -20,10 +20,11 @@ export class LandingPageComponent {
     loadAPI: Promise<any>;
     id: any;
     member: any;
+    composeForm: any;
     constructor(
         private _fuseConfigService: FuseConfigService,
         public _fuseSplashScreenService: FuseSplashScreenService,
-        // private oauthService: OAuthService,
+        private _formBuilder: FormBuilder,
         public appService: AppService
     ) {
         // Configure the layout
@@ -49,45 +50,19 @@ export class LandingPageComponent {
         // this.oauthService.initImplicitFlow();
     }
     ngOnInit() {
-        // this.userStore.pipe(
-        //     select(fromUser.getCurrentUser),
-        //     takeWhile(() => this.componentActive)
-        // ).subscribe(
-        //     (member: Member) => {
-        //         this.member = member;
-        //         if (member && this.isLoggedin) {
-        //             if (member.IsPM) {
-        //                 this.router.navigate(['/PM']);
-        //             }
-        //             else {
-        //                 this.router.navigate(['/dashboard']);
-        //             }
-        //         }
-        //     }
-        // );
-        // this.userStore.pipe(
-        //     select(fromUser.getIsLoading),
-        //     takeWhile(() => this.componentActive)
-        // ).subscribe(
-        //     (loading: boolean) => {
-        //         if (!loading) {
-        //             this.appLoading = loading;
-        //         }
-        //     }
-        // );
-
-        // this.oauthService.events.subscribe(e => {
-        //     if (e.type === 'token_received') {
-        //         this.appService.setWasLoggedIn();
-        //         this.getCurrentMemberAndRedirectToDashboard();
-        //     }
-        // });
+        this.composeForm = this.createProductForm();
     }
 
     ngOnDestroy() {
         this.componentActive = false;
     }
-
+    createProductForm(): FormGroup {
+        return this._formBuilder.group({
+            PickupZipCode: ['' ],
+            DeliveryZipCode: ['' ],
+            pickupDate: ['' ],
+        });
+    }
     detectBrowser() {
         const isIEOrEdge = /msie\s|trident\/|edge\//i.test(window.navigator.userAgent);
     }
@@ -130,7 +105,11 @@ export class LandingPageComponent {
         //this.oauthService.logOut();
     }
 
-    scrollToElement($element): void {
-        $element.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'});
+    scrollToElement(element): void {
+        console.log(element);
+        const el = document.getElementById(element);
+        if (el) {
+            el.scrollIntoView({block: 'center'});
+        }
     }
 }

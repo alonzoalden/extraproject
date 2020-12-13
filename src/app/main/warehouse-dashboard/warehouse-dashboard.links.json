@@ -5,24 +5,6 @@
             "slug": "/shipments",
             "icon": "build",
             "subclass": "Inbound"
-        },
-        {
-            "title": "Button 2",
-            "slug": "/shipments",
-            "icon": "info",
-            "subclass": "Outbound"
-        },
-        {
-            "title": "Button 3",
-            "slug": "/shipments",
-            "icon": "add_location",
-            "subclass": "Outbound"
-        },
-        {
-            "title": "Button 4",
-            "slug": "/shipments",
-            "icon": "event_note",
-            "subclass": "General"
         }
     ]
 }

@@ -5,10 +5,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-
 import { FuseSharedModule } from '@fuse/shared.module';
-
 import { LandingPageComponent } from './landing.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 @NgModule({
@@ -21,7 +21,8 @@ import { LandingPageComponent } from './landing.component';
         MatFormFieldModule,
         MatIconModule,
         MatInputModule,
-
+        MatDatepickerModule,
+        MatExpansionModule,
         FuseSharedModule
     ]
 
