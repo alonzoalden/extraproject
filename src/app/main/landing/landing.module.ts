@@ -16,6 +16,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
         LandingPageComponent
     ],
     imports: [
+        RouterModule,
         MatButtonModule,
         MatCheckboxModule,
         MatFormFieldModule,
