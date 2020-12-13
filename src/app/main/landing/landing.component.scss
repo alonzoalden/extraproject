@@ -28,6 +28,7 @@ app-landing-page {
     .toolbar {
         z-index: 999 !important;
         height: 73px;
+        padding: 4px 6px;
         //background-color: rgba(255, 255, 255, 0.9);
         background-color: #252829;
         border-bottom: 1px solid #666;
@@ -50,6 +51,7 @@ app-landing-page {
             display: flex;
         }
         .button-link {
+            display: flex;
             margin-left: 50px;
             a {
                 color: #fff;
@@ -63,23 +65,6 @@ app-landing-page {
             transition: all .2s ease-in-out; 
         }
     }
-    .main-display-toolbar .but {
-        width: 200px;
-        text-align: center;
-        line-height: 40px;
-        color: #FFF;
-        font-style: italic;
-        cursor: pointer;
-        z-index: 0;
-        background-color: #82909e;
-        margin-left: 2px;
-    }
-
-        .main-display-toolbar .but:hover {
-            transition: 120ms !important;
-            background-color: #a3adb8;
-        }
-
     .main-display-container {
         width: 100%;
     }
@@ -94,220 +79,6 @@ app-landing-page {
         font-size: 16px;
     }
 
-    .home-logo {
-        margin: 4px 0;
-        position: relative;
-    }
-
-    .home-logo a {
-        float: left;
-    }
-    .home-menu-sec {
-        height: 70px;
-    }
-
-    .home-menu-sec nav {
-        float: right;
-        margin-right: 20px;
-        margin-top: -8px !important;
-    }
-
-    .home-menu-sec nav > ul {
-        float: left;
-        margin: 0;
-    }
-
-    .home-menu-sec nav > ul > li {
-        float: left;
-        position: relative;
-        margin: 0;
-    }
-
-    .home-menu-sec nav > ul > li > a {
-        float: left;
-        font-family: Open Sans;
-        font-size: 15px;
-        color: #676a6c;
-        position: relative;
-        padding: 14px 20px;
-    }
-
-
-    .home-forsticky.home-sticky {
-        position: fixed;
-        left: 0;
-        top: 0;
-        background: #ffffff;
-        -webkit-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
-        -moz-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
-        -ms-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
-        -o-box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
-        box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
-        box-shadow: 0 0 25px -3px rgba(0,0,0,0.5);
-    }
-    .home-forsticky.home-sticky .home-logo a img.home-showsticky {
-        display: block;
-    }
-
-    .home-forsticky.home-sticky .home-logo a img.home-hidesticky {
-        opacity: 0;
-    }
-
-    .home-forsticky {
-        position: absolute;
-        left: 0;
-        top: 0;
-        transition: 800ms;
-    }
-
-    .home-stick-top {
-        width: 100%;
-        z-index: 12;
-    }
-
-    .home-showsticky {
-        display: none;
-        position: absolute;
-        left: 0;
-        top: 0;
-    }
-
-    .home-forsticky.home-sticky .home-logo a img.home-showsticky {
-        display: block;
-    }
-
-    .home-forsticky.home-sticky .home-logo a img.hidesticky {
-        opacity: 0;
-    }
-
-
-    header.home-gradient {
-        position: relative;
-        z-index: 2;
-        float: left;
-        width: 100%;
-    }
-
-    .home-menu-sec {
-        float: left;
-        width: 100%;
-        margin: 30px 0;
-        margin-bottom: 0;
-    }
-
-    .home-container {
-        padding: 0;
-        margin-right: auto;
-        margin-left: auto;
-        width: 100%;
-    }
-
-    header.home-gradient {
-        position: relative;
-        z-index: 2;
-        float: left;
-        width: 100%;
-    }
-
-    .home-menu-sec {
-        float: left;
-        width: 100%;
-        margin: 30px 0;
-        margin-bottom: 0;
-    }
-
-    .home-container {
-        padding: 0;
-        margin-right: auto;
-        margin-left: auto;
-        width: 100%;
-    }
-    /* Heading */
-    .heading {
-        width: 100%;
-        text-align: center;
-        margin-bottom: 40px;
-    }
-
-        .heading > h2 {
-            width: 100%;
-            margin: 0;
-            font-family: 'Quicksand';
-            font-weight: bold;
-            font-size: 30px;
-            color: #202020;
-            line-height: 23px;
-        }
-
-        .heading > h3 {
-            font-size: 30px;
-        }
-
-        .heading span {
-            float: left;
-            width: 100%;
-            font-family: Open Sans;
-            font-size: 16px;
-            color: #888888;
-            margin-top: 8px;
-            line-height: 29px;
-        }
-
-    .helped-companies-container {
-        width: 100%;
-        height: 320px;
-        margin-top: 50px;
-    }
-    .how-to-content {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        padding-top: 40px !important;
-        width: 100%;
-    }
-        .how-to {
-            width: 200px;
-            text-align: center;
-            margin-left: 50px;
-            margin-right: 50px;
-            margin-bottom: 30px !important;
-        }
-
-        .how-to h3 {
-            margin-top: 20px;
-        }
-        .how-to p {
-            color: #888888;
-        }
-        .how-icon {
-            color: #ffb547;
-        }
-    .topfooter {
-        display: inline-block;
-        background-color: #f4f4f4;
-        letter-spacing: 1px;
-        font-size: 14px;
-        width: 100%;
-        text-align: center;
-        height: 80px;
-        line-height: 80px;
-    }
-        .topfooter li {
-            display: inline-block;
-            margin-right: 6px;
-        }
-    .how-it-works-container {
-        background-color: #FFF;
-        width: 100%;
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-
-    .helped-companies-content {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
     .bg-lightgrey {
         background-color: #f4f4f4;
     }
@@ -320,38 +91,6 @@ app-landing-page {
         .how-to {
             margin: 30px auto !important;
         }
-    }
-
-
-    .navbar {
-        min-height: 80px;
-        background-color: #fafafa;
-    }
-
-    .navbar-brand {
-        padding: 0 15px;
-        height: 80px;
-        line-height: 80px;
-    }
-
-    .navbar-toggle {
-        /* (80px - button height 34px) / 2 = 23px */
-        margin-top: 23px;
-        padding: 9px 10px !important;
-    }
-
-    .navbar-nav li a {
-        font-size: 14px;
-        color: #676a6c;
-        text-transform: uppercase;
-        
-    }
-    .navbar-nav li a:hover {
-        color: $toolots-orange;
-        background-color: #fafafa !important;
-    }
-    .navbar-default {
-        box-shadow: 2px 2px 8px #404040;
     }
 
     @media (min-width: 768px) {
@@ -499,7 +238,7 @@ app-landing-page {
     }
     .mat-expansion-panel-header {
         padding: 12px;
-        height: 62px !important;
+        height: auto;
     }
     .mat-expansion-panel-header-title {
         font-size: 26px;
@@ -517,12 +256,24 @@ app-landing-page {
         }
     }
     @media (max-width: 720px) {
+        .instant-quotes-container {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+            .services {
+            flex-direction: column;
+            > div {
+                margin-bottom: 24px;
+            }
+        }
         .mat-expansion-panel-header-title {
             font-size: 20px;
         }
         .main-title {
-            font-size: 60px;
-            line-height: 52px;
+            font-size: 52px;
+            line-height: 44px;
         }
     }
     @media (max-width: 1100px) {
@@ -656,22 +407,4 @@ app-landing-page {
     .text-black {
         color: #333;
     }
-    // .bg-signup2 {
-    //     background: linear-gradient(to bottom, rgba(244,244,244,0.9) 0%,rgba(244,244,244,0.9) 100%), url(https://content-merchantportal.toolots.net/assets/images/gears2.jpg);
-    //     background-size: cover;
-    //     background-repeat: no-repeat;
-    //     background-attachment: fixed;
-    //     width: 100%;
-    // }
-
-
-    // @media (max-width:1440px){
-    //     .bg-signup2 {
-    //         background: linear-gradient(to bottom, rgba(244,244,244,0.9) 0%,rgba(244,244,244,0.9) 100%), url(https://content-merchantportal.toolots.net/assets/images/gears2.jpg) 65%;
-    //         background-size: cover;
-    //         background-repeat: no-repeat;
-    //         background-attachment: fixed;
-    //         width: 100%;
-    //     }
-    // }
 }
