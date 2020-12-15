@@ -8,53 +8,104 @@ export const navigation: FuseNavigation[] = [
         type     : 'group',
         icon     : 'apps',
         children : [
-            
             {
-                id       : 'Manage Shipments',
-                title    : 'Manage Shipments',
-                translate: 'Applications',
+                id       : 'Shipments',
+                title    : 'Shipments',
+                translate: 'Shipments',
                 type     : 'collapsable',
-                icon     : 'build',
-                url       : '/dashboard',
+                icon     : '',
+                url       : '/shipments',
                 children : [
                     {
-                        id        : 'shipments',
-                        title     : 'Shipments',
+                        id        : 'allshipments',
+                        title     : 'All Shipments',
                         type      : 'item',
-                        url       : '/shipments',
+                        url       : '/shipments/all',
                     },
-                    // {
-                    //     id        : 'products',
-                    //     title     : 'Items',
-                    //     type      : 'item',
-                    //     url       : '/e-commerce/products',
-                    //     exactMatch: true
-                    // },
-                    // {
-                    //     id        : 'productDetail',
-                    //     title     : 'Item Detail',
-                    //     type      : 'item',
-                    //     url       : '/e-commerce/products/1/printed-dress',
-                    //     // exactMatch: true
-                    // },
-                    // {
-                    //     id        : 'orders',
-                    //     title     : 'Link 2',
-                    //     type      : 'item',
-                    //     url       : '/shipments1',
-                    // },
-                    // {
-                    //     id        : 'orders',
-                    //     title     : 'Link 3',
-                    //     type      : 'item',
-                    //     url       : '/shipments2',
-                    // },
-                    // {
-                    //     id        : 'orderDetail',
-                    //     title     : 'Link 4',
-                    //     type      : 'item',
-                    //     url       : '/shipments3',
-                    // }
+                    {
+                        id        : 'openshipments',
+                        title     : 'Open Shipments',
+                        type      : 'item',
+                        url       : '/shipments/open',
+                    },
+                    {
+                        id        : 'closedshipments',
+                        title     : 'Closed Shipments',
+                        type      : 'item',
+                        url       : '/shipments/closed',
+                    },
+                ]
+            },
+            {
+                id       : 'Billing',
+                title    : 'Billing',
+                translate: 'Billing',
+                type     : 'collapsable',
+                icon     : '',
+                url       : '/billing',
+                children : [
+                    {
+                        id        : 'allinvoices',
+                        title     : 'All Invoices',
+                        type      : 'item',
+                        url       : '/billing/all',
+                    },
+                    {
+                        id        : 'openinvoices',
+                        title     : 'Open Invoices',
+                        type      : 'item',
+                        url       : '/billing/open',
+                    },
+                    {
+                        id        : 'closedinvoices',
+                        title     : 'Closed Invoices',
+                        type      : 'item',
+                        url       : '/billing/closed',
+                    },
+                ]
+            },
+            {
+                id       : 'Claims',
+                title    : 'Claims',
+                translate: 'Claims',
+                type     : 'collapsable',
+                icon     : '',
+                url       : '/claims',
+                children : [
+                    {
+                        id        : 'allclaims',
+                        title     : 'All Claims',
+                        type      : 'item',
+                        url       : '/claims/all',
+                    },
+                    {
+                        id        : 'openclaims',
+                        title     : 'Open Claims',
+                        type      : 'item',
+                        url       : '/claims/open',
+                    },
+                    {
+                        id        : 'closedclaims',
+                        title     : 'Closed Claims',
+                        type      : 'item',
+                        url       : '/claims/closed',
+                    },
+                ]
+            },
+            {
+                id       : 'Reports',
+                title    : 'Reports',
+                translate: 'Reports',
+                type     : 'collapsable',
+                icon     : '',
+                url       : '/reports',
+                children : [
+                    {
+                        id        : 'allreports',
+                        title     : 'All Reports',
+                        type      : 'item',
+                        url       : '/reports/all',
+                    },
                 ]
             },
             // {

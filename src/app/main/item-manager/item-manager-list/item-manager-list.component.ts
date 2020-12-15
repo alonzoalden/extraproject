@@ -21,6 +21,7 @@ import { AppService } from 'app/app.service';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { ViewShipmentDialogComponent } from '../dialogs/view-shipment/view-shipment.component';
 import { MediaObserver } from '@angular/flex-layout';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'item-manager-list',
@@ -40,7 +41,7 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
     imageURL = environment.imageURL;
     files: any;
     dataSource: any;
-    displayedColumns = ['ItemNumber', 'HTCCode', 'UpdatedOn', 'Actions'];
+    displayedColumns = ['HBL', 'MBL', 'Container', 'ETD', 'ETA', 'TXL', 'Actions'];
     displayedColumnsMobile = ['ItemMobile'];
     selected: ItemList;
     isLoading: boolean;
@@ -51,6 +52,7 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
     searchEnabled: boolean;
     dialogRef: any;
     inputEnabled: boolean;
+    title: any;
     @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
     @ViewChild(MatSort, { static: true }) sort: MatSort;
     @ViewChild('mainInput') mainInput: ElementRef;
@@ -62,7 +64,8 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
         private warehouseItemManagerService: WarehouseItemManagerService,
         public _matDialog: MatDialog,
         private _snackBar: MatSnackBar,
-        public media: MediaObserver
+        public media: MediaObserver,
+        private router: Router
     ) {
         this._unsubscribeAll = new Subject();
         this.searchTerm = '';
@@ -72,6 +75,16 @@ export class WarehouseItemManagerListComponent implements OnInit, OnDestroy {
     }
     isMobile = () => this.media.isActive('lt-md');
     ngOnInit(): void {
+        if (this.router.url.includes('claims')) {
+            this.title = 'Claims';
+        }
+        if (this.router.url.includes('shipments')) {
+            this.title = 'Shipment';
+        }
+        if (this.router.url.includes('billing')) {
+            this.title = 'Invoice';
+        }
+
         this.media.asObservable()
             .subscribe(item => {
                 this.appService.allItemList

@@ -1,0 +1,22 @@
+{
+    "links": [
+        {
+            "title": "All Invoices",
+            "slug": "/billing/all",
+            "icon": "build",
+            "subclass": "Inbound"
+        },
+        {
+            "title": "Open Invoices",
+            "slug": "/billing/open",
+            "icon": "build",
+            "subclass": "Inbound"
+        },
+        {
+            "title": "Closed Invoices",
+            "slug": "/billing/closed",
+            "icon": "build",
+            "subclass": "Inbound"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "links": [
+        {
+            "title": "All Shipments",
+            "slug": "/shipments/all",
+            "icon": "build",
+            "subclass": "Inbound"
+        },
+        {
+            "title": "Open Shipments",
+            "slug": "/shipments/open",
+            "icon": "build",
+            "subclass": "Inbound"
+        },
+        {
+            "title": "Closed Shipments",
+            "slug": "/shipments/closed",
+            "icon": "build",
+            "subclass": "Inbound"
+        }
+    ]
+}

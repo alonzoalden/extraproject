@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BillingDashboardComponent } from './main/billing/dashboard/dashboard.component';
+import { WarehouseItemManagerComponent } from './main/item-manager/warehouse-item-manager.component';
+import { WarehouseItemManagerModule } from './main/item-manager/warehouse-item-manager.module';
 import { LandingPageComponent } from './main/landing/landing.component';
-import { WarehouseDashboardComponent } from './main/warehouse-dashboard/warehouse-dashboard.component';
+import { ReportsDashboardComponent } from './main/reports/dashboard/dashboard.component';
+import { ShipmentsDashboardComponent } from './main/shipments/dashboard/dashboard.component';
 
 const routes: Routes = [
     // {
@@ -13,9 +17,46 @@ const routes: Routes = [
         component: LandingPageComponent
     },
     {
-        path: 'dashboard',
-        component: WarehouseDashboardComponent
+        path: 'reports',
+        component: ReportsDashboardComponent
     },
+    // {
+    //     path: 'shipments',
+    //     component: ShipmentsDashboardComponent,
+    //     children: [
+    //         {
+    //             path: 'all',
+    //             component: WarehouseItemManagerComponent,
+    //         },
+    //         {
+    //             path: 'open',
+    //             component: WarehouseItemManagerComponent,
+    //         },
+    //         {
+    //             path: 'closed',
+    //             component: WarehouseItemManagerComponent,
+    //         },
+    //     ]
+    // },
+    // {
+    //     path: 'shipments',
+    //     component: ShipmentsDashboardComponent,
+    //     children: [
+    //         {
+    //             path: 'all',
+    //             component: WarehouseItemManagerComponent,
+    //         },
+    //         {
+    //             path: 'open',
+    //             component: WarehouseItemManagerComponent,
+    //         },
+    //         {
+    //             path: 'closed',
+    //             component: WarehouseItemManagerComponent,
+    //         },
+    //     ]
+    // },
+    
     {
         path: '**',
         redirectTo: 'apps/dashboards/analytics'
@@ -32,7 +73,14 @@ const routes: Routes = [
         path        : 'shipments',
         loadChildren: () => import('./main/item-manager/warehouse-item-manager.module').then(m => m.WarehouseItemManagerModule)
     },
-    
+    {
+        path        : 'billing',
+        loadChildren: () => import('./main/billing/billing.module').then(m => m.BillingModule)
+    },
+    {
+        path        : 'claims',
+        loadChildren: () => import('./main/claims/claims.module').then(m => m.ClaimsModule)
+    },
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

@@ -25,16 +25,20 @@ import { LoginModule } from './main/login/login.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { WarehouseItemManagerModule } from './main/item-manager/warehouse-item-manager.module';
 import { LandingPageModule } from './main/landing/landing.module';
-import { WarehouseDashboardComponent } from './main/warehouse-dashboard/warehouse-dashboard.component';
+//import { WarehouseDashboardComponent } from './main/warehouse-dashboard/warehouse-dashboard.component';
+
 import { SafePipe } from './shared/pipes/safe.pipe';
+import { ShipmentsDashboardComponent } from './main/shipments/dashboard/dashboard.component';
+import { BillingDashboardComponent } from './main/billing/dashboard/dashboard.component';
+import { BillingModule } from './main/billing/billing.module';
+import { ReportsModule } from './main/reports/reports.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     // LandingPageComponent,
-    WarehouseDashboardComponent,
-    
+    ShipmentsDashboardComponent
   ],
   imports: [
     AppRoutingModule,
@@ -72,17 +76,13 @@ import { SafePipe } from './shared/pipes/safe.pipe';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
-    
-
     FuseSharedModule,
-
     SimpleNotificationsModule.forRoot(),
     FlexLayoutModule,
-
-    
     LoginModule,
     WarehouseItemManagerModule,
-    
+    BillingModule,
+    ReportsModule
   ],
   exports: [
     

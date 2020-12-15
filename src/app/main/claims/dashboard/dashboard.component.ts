@@ -7,15 +7,15 @@ import { Router } from '@angular/router';
 import { MatRipple } from '@angular/material/core';
 import { AppService } from 'app/app.service';
 import { Member } from 'app/shared/class/member';
-import * as linkData from './warehouse-dashboard.links.json';
+import * as linkData from './shipments-dashboard.links.json';
 
 @Component({
-    selector: 'warehouse-dashboard',
-    templateUrl: './warehouse-dashboard.component.html',
-    styleUrls: ['./warehouse-dashboard.component.scss'],
+    selector: 'claims-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss'],
     animations: fuseAnimations
 })
-export class WarehouseDashboardComponent implements OnInit, OnDestroy {
+export class ClaimsDashboardComponent implements OnInit, OnDestroy {
     userInfo: Member;
     categories: any[];
     links: any[];

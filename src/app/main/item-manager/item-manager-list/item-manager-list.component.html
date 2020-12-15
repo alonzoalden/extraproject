@@ -4,7 +4,7 @@
         <div class="breadcrumb text-truncate h1 p24"
                 [@animate]="{value:'*',params:{x:'50px'}}">
             <div fxLayout="row" fxLayoutAlign="start center">
-                <h1 fxLayout="row" fxLayoutAlign="start center"> <button mat-icon-button [routerLink]="['../dashboard']"><mat-icon>home</mat-icon> </button> <mat-icon>chevron_right</mat-icon> Shipment Management</h1>
+                <h1 fxLayout="row" fxLayoutAlign="start center"> <button mat-icon-button [routerLink]="['../dashboard']"><mat-icon>home</mat-icon> </button> <mat-icon>chevron_right</mat-icon> {{title}} Management</h1>
             </div>
         </div>
         
@@ -90,40 +90,46 @@
                     </mat-cell>
                 </ng-container>
 
-
-                <!-- ItemNumber Column -->
-                <ng-container matColumnDef="ItemNumber">
-                    <mat-header-cell *matHeaderCellDef >Item Number</mat-header-cell>
+                <ng-container matColumnDef="HBL">
+                    <mat-header-cell *matHeaderCellDef >HBL</mat-header-cell>
                     <mat-cell *matCellDef="let row" >
                         {{ row.ItemNumber }}
                     </mat-cell>
                 </ng-container>
                 <!-- ItemDescription Column -->
-                <ng-container matColumnDef="ItemDescription">
-                    <mat-header-cell *matHeaderCellDef >Description</mat-header-cell>
+                <ng-container matColumnDef="MBL">
+                    <mat-header-cell *matHeaderCellDef >MBL</mat-header-cell>
                     <mat-cell *matCellDef="let row" >
-                        {{ row.ItemDescription }}
+                        {{ row.ItemNumber + '3f2' }}
                     </mat-cell>
                 </ng-container>
+                
                 <!-- HTCCode Column -->
-                <ng-container matColumnDef="HTCCode">
-                    <mat-header-cell *matHeaderCellDef >HTCCode</mat-header-cell>
+                <ng-container matColumnDef="Container">
+                    <mat-header-cell *matHeaderCellDef >Container</mat-header-cell>
                     <mat-cell *matCellDef="let row" >
                         {{ row.HTCCode }}
                     </mat-cell>
                 </ng-container>
                 <!-- UpdatedOn Column -->
-                <ng-container matColumnDef="UpdatedOn">
-                    <mat-header-cell *matHeaderCellDef >Updated On</mat-header-cell>
+                <ng-container matColumnDef="ETD">
+                    <mat-header-cell *matHeaderCellDef >ETD</mat-header-cell>
                     <mat-cell *matCellDef="let row" >
                         {{ row.UpdatedOn }}
                     </mat-cell>
                 </ng-container>
                 <!-- Steps Column -->
-                <ng-container matColumnDef="Steps">
-                    <mat-header-cell *matHeaderCellDef fxLayoutAlign="center center" fxHide.lt-md style="padding-right: 7px;">Steps</mat-header-cell>
-                    <mat-cell *matCellDef="let row" fxHide.lt-md>
-                        
+                <ng-container matColumnDef="ETA">
+                    <mat-header-cell *matHeaderCellDef >ETA</mat-header-cell>
+                    <mat-cell *matCellDef="let row" >
+                        {{ row.UpdatedOn }}
+                    </mat-cell>
+                </ng-container>
+                <!-- TXL column -->
+                <ng-container matColumnDef="TXL">
+                    <mat-header-cell *matHeaderCellDef>TXL</mat-header-cell>
+                    <mat-cell *matCellDef="let row" >
+                        {{ row.UpdatedOn }}
                     </mat-cell>
                 </ng-container>
                 
@@ -260,7 +266,48 @@
                     </mat-cell>
                 </ng-container>
 
-
+                <ng-container matColumnDef="HBL">
+                    <mat-header-cell *matHeaderCellDef >HBL</mat-header-cell>
+                    <mat-cell *matCellDef="let row" >
+                        {{ row.ItemNumber }}
+                    </mat-cell>
+                </ng-container>
+                <!-- ItemDescription Column -->
+                <ng-container matColumnDef="MBL">
+                    <mat-header-cell *matHeaderCellDef >MBL</mat-header-cell>
+                    <mat-cell *matCellDef="let row" >
+                        {{ row.ItemNumber + '3f2' }}
+                    </mat-cell>
+                </ng-container>
+                
+                <!-- HTCCode Column -->
+                <ng-container matColumnDef="Container">
+                    <mat-header-cell *matHeaderCellDef >Container</mat-header-cell>
+                    <mat-cell *matCellDef="let row" >
+                        {{ row.HTCCode }}
+                    </mat-cell>
+                </ng-container>
+                <!-- UpdatedOn Column -->
+                <ng-container matColumnDef="ETD">
+                    <mat-header-cell *matHeaderCellDef >ETD</mat-header-cell>
+                    <mat-cell *matCellDef="let row" >
+                        {{ row.UpdatedOn }}
+                    </mat-cell>
+                </ng-container>
+                <!-- Steps Column -->
+                <ng-container matColumnDef="ETA">
+                    <mat-header-cell *matHeaderCellDef >ETA</mat-header-cell>
+                    <mat-cell *matCellDef="let row" >
+                        {{ row.UpdatedOn }}
+                    </mat-cell>
+                </ng-container>
+                <!-- TXL column -->
+                <ng-container matColumnDef="TXL">
+                    <mat-header-cell *matHeaderCellDef>TXL</mat-header-cell>
+                    <mat-cell *matCellDef="let row" >
+                        {{ row.UpdatedOn }}
+                    </mat-cell>
+                </ng-container>
                 <!-- ItemNumber Column -->
                 <ng-container matColumnDef="ItemNumber">
                     <mat-header-cell *matHeaderCellDef >Item Number</mat-header-cell>

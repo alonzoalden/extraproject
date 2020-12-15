@@ -1,8 +1,8 @@
 {
     "links": [
         {
-            "title": "Shipments",
-            "slug": "/shipments",
+            "title": "All Reports",
+            "slug": "/reports/all",
             "icon": "build",
             "subclass": "Inbound"
         }

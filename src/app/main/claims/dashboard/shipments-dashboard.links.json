@@ -1,0 +1,22 @@
+{
+    "links": [
+        {
+            "title": "All Claims",
+            "slug": "/claims/all",
+            "icon": "build",
+            "subclass": "Inbound"
+        },
+        {
+            "title": "Open Claims",
+            "slug": "/claims/open",
+            "icon": "build",
+            "subclass": "Inbound"
+        },
+        {
+            "title": "Closed Claims",
+            "slug": "/claims/closed",
+            "icon": "build",
+            "subclass": "Inbound"
+        }
+    ]
+}
